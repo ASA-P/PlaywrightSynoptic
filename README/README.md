@@ -17,11 +17,13 @@ Click the top left button to view classes like the page class: https://playwrigh
 
 ## Creating Project
 - Open Visual Studio and create a blank project
+![Image ](Images/OpenVisualStudioandcreateablankproject.png?raw=true)<br />
 
 - Open Developer PowerShell 
 Follow these steps to open Developer Command Prompt or Developer PowerShell from within Visual Studio:
     - Open Visual Studio.
     - On the menu bar, select Tools > Command Line > Developer PowerShell. 
+![Image ](Images/OpenDeveloperPowerShell.png?raw=true)<br />
 
 - Type the following instructions in Developer PowerShell
 ```
@@ -41,11 +43,35 @@ dotnet tool update --global PowerShell
     - On the menu bar, select File > Open > Project/Solution
     - Find folder of created project and open csproj file 
 
+- Add the following folder inside your project folder:
+https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
+
+- Add a file called dev.runsettings and replace contents with:
+
+  ```
+  <?xml version="1.0" encoding="utf-8"?>
+  <RunSettings>
+    <TestRunParameters>
+    </TestRunParameters>
+    <RunConfiguration>
+      <EnvironmentVariables>
+        <HEADED>0</HEADED>
+        <PWDEBUG>0</PWDEBUG>
+        <TIMEOUT>0</TIMEOUT>
+        <SLOWMO>0</SLOWMO>
+        <BROWSER>chromium</BROWSER>
+        <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+      </EnvironmentVariables>
+    </RunConfiguration>
+  </RunSettings>
+  ```
+
 - Replace Using.cs contents with:
 ```
 global using NUnit.Framework;
 global using System.Threading.Tasks; 
 global using Microsoft.Playwright;
+global using Playwright.Custom.NUnit;
 ```
 - Replace UnitTest1.cs contents with:
 ```
@@ -57,14 +83,14 @@ public class Tests : PageTest
     [Test]
     public async Task ShouldAdd()
     {
-        int result = await Page.EvaluateAsync<int>("() => 7 + 3");
+        int result = await page.EvaluateAsync<int>("() => 7 + 3");
         Assert.That(result, Is.EqualTo(10));
     }
 
     [Test]
     public async Task ShouldMultiply()
     {
-        int result = await Page.EvaluateAsync<int>("() => 7 * 3");
+        int result = await page.EvaluateAsync<int>("() => 7 * 3");
         Assert.That(result, Is.EqualTo(21));
     }
 }
@@ -87,6 +113,7 @@ public class Tests : PageTest
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
 # Add Folder
+
  # Online Demo of Playwright 
 ### [Demos:](https://try.playwright.tech/?l=csharp)
 - [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
@@ -242,7 +269,8 @@ We can avoid this pitfall by making sure our tests are verifying only one featur
 
     Always check the assertions in your test: if they are spanning more than one feature, you would likely be better off splitting your test into multiple different ones.
 
-Generate code / selectors
+# Playwright Tools
+### Generate code / selectors
 
 Run codegen and perform actions in the browser. Playwright CLI will generate JavaScript code for the user interactions. codegen will attempt to generate resilient text-based selectors
 Enter in Developer PowerShell:
