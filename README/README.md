@@ -60,7 +60,6 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
       <TIMEOUT>0</TIMEOUT>
       <SLOWMO>0</SLOWMO>
       <BROWSER>chromium</BROWSER>
-      <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
@@ -126,11 +125,18 @@ public class Tests : PageTest
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 - Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
 
-- Add the folowing test parameters in <TestRunParameters> in dev.runsettings:
+- Add the folowing test parameters in ```<TestRunParameters>``` in dev.runsettings:
 ```
 <Parameter name="UserName" value=""/>
 <Parameter name="Password" value=""/>
 ```
+- Add the folowing environment variables in ```<EnvironmentVariables>```
+```
+<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+```
+# CirrusInsite Authentication & Visual Testing
+- Add the following folder inside your project folder:
+https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
 
  # Online Demo of Playwright 
 ### [Demos:](https://try.playwright.tech/?l=csharp)
