@@ -46,23 +46,25 @@ dotnet tool update --global PowerShell
 - Add the following folder inside your project folder:
 https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<RunSettings>
-  <TestRunParameters>
-  </TestRunParameters>
-  <RunConfiguration>
-    <EnvironmentVariables>
-      <HEADED>0</HEADED>
-      <PWDEBUG>0</PWDEBUG>
-      <TIMEOUT>0</TIMEOUT>
-      <SLOWMO>0</SLOWMO>
-      <BROWSER>chromium</BROWSER>
-      <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
-    </EnvironmentVariables>
-  </RunConfiguration>
-</RunSettings>
-```
+- Add a file called dev.runsettings and replace contents with:
+
+  ```
+  <?xml version="1.0" encoding="utf-8"?>
+  <RunSettings>
+    <TestRunParameters>
+    </TestRunParameters>
+    <RunConfiguration>
+      <EnvironmentVariables>
+        <HEADED>0</HEADED>
+        <PWDEBUG>0</PWDEBUG>
+        <TIMEOUT>0</TIMEOUT>
+        <SLOWMO>0</SLOWMO>
+        <BROWSER>chromium</BROWSER>
+        <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+      </EnvironmentVariables>
+    </RunConfiguration>
+  </RunSettings>
+  ```
 
 - Replace Using.cs contents with:
 ```
