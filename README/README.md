@@ -126,6 +126,12 @@ public class Tests : PageTest
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 - Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
 
+- Add the folowing test parameters in <TestRunParameters> in dev.runsettings:
+```
+<Parameter name="UserName" value=""/>
+<Parameter name="Password" value=""/>
+```
+
  # Online Demo of Playwright 
 ### [Demos:](https://try.playwright.tech/?l=csharp)
 - [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
