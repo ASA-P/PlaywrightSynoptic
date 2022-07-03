@@ -1,3 +1,14 @@
+# Useful Links
+Playwright .NET website: https://playwright.dev/dotnet/
+Guides: Click top left 
+
+
+Playwright .NET Application Programming Interface: https://playwright.dev/dotnet/docs/api/class-playwright
+
+https://playwright.dev/dotnet/docs/selectors
+
+https://playwright.dev/dotnet/docs/api/class-page
+
 # Playwright .Net Setup
 
 ## Prerequisites
