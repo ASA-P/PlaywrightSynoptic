@@ -69,7 +69,12 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
     -   [Microsoft Documentation:](https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2022#specify-a-run-settings-file-in-the-ide)
     - **Manually select the run settings file** <br />
 In the IDE, select **Test > Configure Run Settings > Select Solution Wide runsettings File**, and then select the .runsettings file.
-![Image ](Images/select-solution-settings-filel.png?raw=true)
+![Image ](Images/select-solution-settings-file.png?raw=true)
+
+  - Add the following build property in project's csproj file:
+```
+<RunSettingsFilePath>$(MSBuildProjectDirectory)\dev.runsettings</RunSettingsFilePath>
+```
 
 - Replace Using.cs contents with:
 ```
