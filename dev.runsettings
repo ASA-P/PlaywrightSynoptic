@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+	<Parameter name="CirrusInsiteUserName" value=""/>
+	<Parameter name="CirrusInsitePassword" value=""/>
+  </TestRunParameters>
+  <RunConfiguration>
+  <EnvironmentVariables>
+    <HEADED>0</HEADED>
+    <PWDEBUG>0</PWDEBUG>
+	<TIMEOUT>0</TIMEOUT>
+	<SLOWMO>0</SLOWMO>
+	<BROWSER>chromium</BROWSER>
+	<SKIPCIRRUSAUTH>0</SKIPCIRRUSAUTH>
+  </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>
