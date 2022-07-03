@@ -48,23 +48,28 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
 
 - Add a file called dev.runsettings and replace contents with:
 
-  ```
-  <?xml version="1.0" encoding="utf-8"?>
-  <RunSettings>
-    <TestRunParameters>
-    </TestRunParameters>
-    <RunConfiguration>
-      <EnvironmentVariables>
-        <HEADED>0</HEADED>
-        <PWDEBUG>0</PWDEBUG>
-        <TIMEOUT>0</TIMEOUT>
-        <SLOWMO>0</SLOWMO>
-        <BROWSER>chromium</BROWSER>
-        <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
-      </EnvironmentVariables>
-    </RunConfiguration>
-  </RunSettings>
-  ```
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+  </TestRunParameters>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <HEADED>0</HEADED>
+      <PWDEBUG>0</PWDEBUG>
+      <TIMEOUT>0</TIMEOUT>
+      <SLOWMO>0</SLOWMO>
+      <BROWSER>chromium</BROWSER>
+      <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>
+```
+- Specify a run settings file in the IDE: 
+    -   [Microsoft Documentation:](https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2022#specify-a-run-settings-file-in-the-ide)
+    - **Manually select the run settings file** <br />
+In the IDE, select **Test > Configure Run Settings > Select Solution Wide runsettings File**, and then select the .runsettings file.
+![Image ](Images/select-solution-settings-filel.png?raw=true)
 
 - Replace Using.cs contents with:
 ```
