@@ -7,13 +7,13 @@
 	<Parameter name="Password" value=""/>
   </TestRunParameters>
   <RunConfiguration>
-  <EnvironmentVariables>
-    <HEADED>0</HEADED>
-    <PWDEBUG>0</PWDEBUG>
-	<TIMEOUT>0</TIMEOUT>
-	<SLOWMO>0</SLOWMO>
-	<BROWSER>chromium</BROWSER>
-	<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
-</EnvironmentVariables>
+	<EnvironmentVariables>
+		<HEADED>0</HEADED>
+		<PWDEBUG>0</PWDEBUG>
+		<TIMEOUT>0</TIMEOUT>
+		<SLOWMO>0</SLOWMO>
+		<BROWSER>chromium</BROWSER>
+		<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+	</EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
