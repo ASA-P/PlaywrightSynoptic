@@ -3,6 +3,8 @@
   <TestRunParameters>
 	<Parameter name="CirrusInsiteUserName" value=""/>
 	<Parameter name="CirrusInsitePassword" value=""/>
+	<Parameter name="UserName" value=""/>
+	<Parameter name="Password" value=""/>
   </TestRunParameters>
   <RunConfiguration>
   <EnvironmentVariables>
@@ -11,7 +13,7 @@
 	<TIMEOUT>0</TIMEOUT>
 	<SLOWMO>0</SLOWMO>
 	<BROWSER>chromium</BROWSER>
-	<SKIPCIRRUSAUTH>0</SKIPCIRRUSAUTH>
-  </EnvironmentVariables>
+	<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+</EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>

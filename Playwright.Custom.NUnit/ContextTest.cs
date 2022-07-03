@@ -1,25 +1,15 @@
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Playwright.Custom.NUnit
 {
     public class ContextTest : BrowserTest
     {
-        public IBrowserContext Context { get; set; }
+        public IBrowserContext Context { get; private set; }
 
         public virtual BrowserNewContextOptions ContextOptions()
         {
-            // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
-            if (File.Exists("state.json"))
-            {
-                return new BrowserNewContextOptions
-                {
-                    StorageStatePath = "state.json"
-                };
-            }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
         [SetUp]
