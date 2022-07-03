@@ -122,7 +122,15 @@ public class Tests : PageTest
     - Select the individual tests that you want to run, open the right-click menu for a selected test and then choose Run Selected Tests (or press Ctrl + R, T).
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
-# Add Folder
+# Add Authentication
+[Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
+- Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
+
+- Add the folowing test parameters in <TestRunParameters> in dev.runsettings:
+```
+<Parameter name="UserName" value=""/>
+<Parameter name="Password" value=""/>
+```
 
  # Online Demo of Playwright 
 ### [Demos:](https://try.playwright.tech/?l=csharp)
