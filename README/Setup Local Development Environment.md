@@ -232,10 +232,11 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
   ```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
 [See other options] (https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 
-[Browser.NewContextAsync(options)
-](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 ### **Tracing**
 [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingStartOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest.
+
+[Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 
 ### **Video**
 ### **Browser**
