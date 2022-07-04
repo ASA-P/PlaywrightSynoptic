@@ -15,8 +15,9 @@ namespace Playwright.Custom.NUnit
             page = await Context.NewPageAsync().ConfigureAwait(false);
             // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
             page.SetDefaultNavigationTimeout(100000);
-            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATION") == "1") ? true : Authenticated;
+            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : Authenticated;
 
+            // Verify authentication file or create authentication file
             if (!Authenticated)
             {
                 await page.GotoAsync("https://github.com/login");

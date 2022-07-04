@@ -172,7 +172,7 @@ namespace Playwright.Custom.NUnit
 ```
 - Add the folowing environment variables in ```<EnvironmentVariables>```
 ```
-<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
 ```
 ## **Explanation**
 ### **Context Class**
@@ -222,7 +222,7 @@ namespace Playwright.Custom.NUnit
             page = await Context.NewPageAsync().ConfigureAwait(false);
             // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
             page.SetDefaultNavigationTimeout(100000);
-            authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATION") == "1") ? true : authenticated;
+            authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : authenticated;
 
             if (!authenticated)
             {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
   <TestRunParameters>
-	<Parameter name="CirrusInsiteUserName" value=""/>
-	<Parameter name="CirrusInsitePassword" value=""/>
-	<Parameter name="UserName" value=""/>
-	<Parameter name="Password" value=""/>
+	  <Parameter name="CirrusInsiteUserName" value=""/>
+	  <Parameter name="CirrusInsitePassword" value=""/>
+	  <Parameter name="UserName" value=""/>
+	  <Parameter name="Password" value=""/>
   </TestRunParameters>
   <RunConfiguration>
 	<EnvironmentVariables>
@@ -13,9 +13,9 @@
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
 		<BROWSER>chromium</BROWSER>
-		<TRACING>1</TRACING>
-		<VIDEO>1</VIDEO>
-		<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
+		<TRACING>0</TRACING>
+		<VIDEO>0</VIDEO>
+		<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
 	</EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
