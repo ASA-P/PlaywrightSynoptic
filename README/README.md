@@ -164,170 +164,6 @@ namespace Playwright.Custom.NUnit
 ### Headed
 ### SLOWMO
 
-# Add Authentication
-[Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
-- Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
-
-- Add the folowing test parameters in ```<TestRunParameters>``` in dev.runsettings:
-```
-<Parameter name="UserName" value=""/>
-<Parameter name="Password" value=""/>
-```
-- Add the folowing environment variables in ```<EnvironmentVariables>```
-```
-<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
-```
-## **Explanation**
-### **Context Class**
-```
-namespace Playwright.Custom.NUnit
-{
-    public class ContextUsingAuthenticationFileTest : BrowserTest
-    {
-        public IBrowserContext Context { get; set; }
-        private bool Tracing { get; set; }
-        private bool Video { get; set; }
-
-        public virtual BrowserNewContextOptions ContextOptions()
-        {
-            var contextOptions = new BrowserNewContextOptions { };
-
-            if (Video || File.Exists("state.json")) { 
-                // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
-                if (File.Exists("state.json"))
-                {
-                    contextOptions.StorageStatePath =  "state.json";
-                }
-                if (Video)
-                {
-                    contextOptions.RecordVideoDir = "videos/";
-                }
-                return contextOptions;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public virtual TracingStartOptions TracingOptions()
-        {
-            if (Tracing)
-            {
-                var tracingStartOptions = new TracingStartOptions { };
-                tracingStartOptions.Screenshots = true;
-                tracingStartOptions.Snapshots = true;
-                tracingStartOptions.Sources = true;
-                return tracingStartOptions;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        [SetUp]
-        public async Task ContextSetup()
-        {
-            Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
-            Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
-            Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
-        }
-
-        [TearDown]
-        public async Task ContextTearDown()
-        {
-            if (Tracing)
-            {
-                var dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
-                dateTime = dateTime.Replace(':', '.');
-                // Stop tracing and export it into a zip archive.
-                await Context.Tracing.StopAsync(new TracingStopOptions
-                {
-                    Path = "trace/ " + dateTime + ".zip"
-                });
-            }
-        }
-    }
-}
-```
-### **Page Class**
-```
-namespace Playwright.Custom.NUnit
-{
-    public class PageTestAuthenticationTemplate : ContextUsingAuthenticationFileTest
-    {
-        public IPage page { get; private set; }
-        private bool Authenticated { get; set; }
-
-        [SetUp]
-        public async Task PageSetup()
-        {
-            page = await Context.NewPageAsync().ConfigureAwait(false);
-            // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
-            page.SetDefaultNavigationTimeout(100000);
-            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : Authenticated;
-
-            // Verify authentication file or create authentication file
-            if (!Authenticated)
-            {
-                await page.GotoAsync("https://github.com/login");
-                try
-                {
-                    await Expect(page).ToHaveURLAsync("https://github.com/");
-                }
-                catch (Exception e)
-                {
-                    // Verify Authentication
-                    if (page.Url != "https://github.com/")
-                    {
-                        // Fill input[name="login"]
-                        await page.Locator("input[name=\"login\"]").FillAsync(TestContext.Parameters["UserName"]);
-                        // Fill input[name="password"]
-                        await page.Locator("input[name=\"password\"]").FillAsync(TestContext.Parameters["Password"]);
-                        // Press Enter
-                        await page.RunAndWaitForNavigationAsync(async () =>
-                        {
-                            await page.Locator("input[name=\"password\"]").PressAsync("Enter");
-                        });
-                        // Save storage state into the file.
-                        await Context.StorageStateAsync(new BrowserContextStorageStateOptions
-                        {
-                            Path = "state.json"
-                        });
-                    }
-                }
-                finally
-                {
-                    Authenticated = true;
-                }
-            }
-        }
-    }
-}
-```
-### **Login Test**
-Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings:
-```
-<Parameter name="UserName" value=""/>
-<Parameter name="Password" value=""/>
-```
-```
-public class AuthenticationTemplateTest : PageTestAuthenticationTemplate
-{
-    [Test]
-    public async Task Login()
-    {
-        await page.GotoAsync("https://github.com/login");
-        Assert.That(page.Url, Is.EqualTo("https://github.com/"));
-    }
-}
-```
-
-# CirrusInsite Authentication & Visual Testing
-- Add the following folder inside your project folder:
-https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
-
  # Online Demo of Playwright 
 ### [Demos:](https://try.playwright.tech/?l=csharp)
 - [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
@@ -523,3 +359,240 @@ Enter in Developer PowerShell:
 - Debug mode on:  ```$env:PWDEBUG=1```
 - Off:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```$env:PWDEBUG=0```
 - Current value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```$env:PWDEBUG```
+
+# Add Authentication
+[Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
+- Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
+
+- Add the folowing test parameters in ```<TestRunParameters>``` in dev.runsettings:
+```
+<Parameter name="UserName" value=""/>
+<Parameter name="Password" value=""/>
+```
+- Add the folowing environment variables in ```<EnvironmentVariables>```
+```
+<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
+```
+## **Explanation**
+### **Context Class**
+```
+namespace Playwright.Custom.NUnit
+{
+    public class ContextUsingAuthenticationFileTest : BrowserTest
+    {
+        public IBrowserContext Context { get; set; }
+        private bool Tracing { get; set; }
+        private bool Video { get; set; }
+
+        public virtual BrowserNewContextOptions ContextOptions()
+        {
+            var contextOptions = new BrowserNewContextOptions { };
+
+            if (Video || File.Exists("state.json")) { 
+                // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
+                if (File.Exists("state.json"))
+                {
+                    contextOptions.StorageStatePath =  "state.json";
+                }
+                if (Video)
+                {
+                    contextOptions.RecordVideoDir = "videos/";
+                }
+                return contextOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public virtual TracingStartOptions TracingOptions()
+        {
+            if (Tracing)
+            {
+                var tracingStartOptions = new TracingStartOptions { };
+                tracingStartOptions.Screenshots = true;
+                tracingStartOptions.Snapshots = true;
+                tracingStartOptions.Sources = true;
+                return tracingStartOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [SetUp]
+        public async Task ContextSetup()
+        {
+            Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
+            Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
+            Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
+        }
+
+        [TearDown]
+        public async Task ContextTearDown()
+        {
+            if (Tracing)
+            {
+                var dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
+                dateTime = dateTime.Replace(':', '.');
+                // Stop tracing and export it into a zip archive.
+                await Context.Tracing.StopAsync(new TracingStopOptions
+                {
+                    Path = "trace/ " + dateTime + ".zip"
+                });
+            }
+        }
+    }
+}
+```
+### **Page Class**
+```
+namespace Playwright.Custom.NUnit
+{
+    public class PageTestAuthenticationTemplate : ContextUsingAuthenticationFileTest
+    {
+        public IPage page { get; private set; }
+        private bool Authenticated { get; set; }
+
+        [SetUp]
+        public async Task PageSetup()
+        {
+            page = await Context.NewPageAsync().ConfigureAwait(false);
+            // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
+            page.SetDefaultNavigationTimeout(100000);
+            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : Authenticated;
+
+            // Verify authentication file or create authentication file
+            if (!Authenticated)
+            {
+                await page.GotoAsync("https://github.com/login");
+                try
+                {
+                    await Expect(page).ToHaveURLAsync("https://github.com/");
+                }
+                catch (Exception e)
+                {
+                    // Verify Authentication
+                    if (page.Url != "https://github.com/")
+                    {
+                        // Fill input[name="login"]
+                        await page.Locator("input[name=\"login\"]").FillAsync(TestContext.Parameters["UserName"]);
+                        // Fill input[name="password"]
+                        await page.Locator("input[name=\"password\"]").FillAsync(TestContext.Parameters["Password"]);
+                        // Press Enter
+                        await page.RunAndWaitForNavigationAsync(async () =>
+                        {
+                            await page.Locator("input[name=\"password\"]").PressAsync("Enter");
+                        });
+                        // Save storage state into the file.
+                        await Context.StorageStateAsync(new BrowserContextStorageStateOptions
+                        {
+                            Path = "state.json"
+                        });
+                    }
+                }
+                finally
+                {
+                    Authenticated = true;
+                }
+            }
+        }
+    }
+}
+```
+### **Login Test**
+Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings:
+```
+<Parameter name="UserName" value=""/>
+<Parameter name="Password" value=""/>
+```
+```
+public class AuthenticationTemplateTest : PageTestAuthenticationTemplate
+{
+    [Test]
+    public async Task Login()
+    {
+        await page.GotoAsync("https://github.com/login");
+        Assert.That(page.Url, Is.EqualTo("https://github.com/"));
+    }
+}
+```
+
+# CirrusInsite Authentication & Visual Testing
+- Add the following folder inside your project folder:
+https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
+
+```
+namespace CirrusInsiteTests;
+using NUnit.Framework;
+using Playwright.Custom.NUnit;
+using Codeuctivity.ImageSharpCompare;
+using Microsoft.Playwright;
+using SixLabors.ImageSharp;
+
+
+public class DemoCirrusInsiteScreenshotTests : CirrusInsitePageTest
+{
+    [Test]
+    public async Task ScreenshotCaptureToFile()
+    {
+        // https://playwright.dev/dotnet/docs/api/class-page#page-screenshot
+        await page.GotoAsync("https://portal.cirrusinsite.com/");
+        await page.ScreenshotAsync(new PageScreenshotOptions {
+            Path = "screenshot.jpg",
+            FullPage = true
+        });
+        var isEqual = ImageSharpCompare.ImagesAreEqual("screenshot.jpg", "screenshot.jpg");
+        File.Delete("screenshot.jpg");
+        Assert.That(isEqual, Is.EqualTo(true));
+    }
+
+    [Test]
+    public async Task ScreenshotCaptureToBytes()
+    {
+        // https://playwright.dev/dotnet/docs/api/class-page#page-screenshot
+        await page.GotoAsync("https://portal.cirrusinsite.com/");
+        var screenshot = Image.Load(new MemoryStream(await page.ScreenshotAsync()));
+        var isEqual = ImageSharpCompare.ImagesAreEqual(screenshot, screenshot);
+        Assert.That(isEqual, Is.EqualTo(true));
+    }
+
+    [Test]
+    public async Task ScreenshotCaptureElementToFile()
+    {
+        // https://playwright.dev/dotnet/docs/api/class-page#page-screenshot
+        await page.GotoAsync("https://portal.cirrusinsite.com/");
+        var screenshot = Image.Load(new MemoryStream(await page.Locator("header").ScreenshotAsync()));
+        await page.Locator("header").ScreenshotAsync(new LocatorScreenshotOptions
+        {
+            Path = "screenshot.jpg"
+        });
+        var isEqual = ImageSharpCompare.ImagesAreEqual("screenshot.jpg", "screenshot.jpg");
+        File.Delete("screenshot.jpg");
+        Assert.That(isEqual, Is.EqualTo(true));
+    }
+
+    [Test]
+    public async Task ScreenshotCaptureElementToBytes()
+    {
+        // https://playwright.dev/dotnet/docs/api/class-page#page-screenshot
+        await page.GotoAsync("https://portal.cirrusinsite.com/");
+        var screenshot = Image.Load(new MemoryStream(await page.Locator("header").ScreenshotAsync()));
+        var isEqual = ImageSharpCompare.ImagesAreEqual(screenshot, screenshot);
+        Assert.That(isEqual, Is.EqualTo(true));
+    }
+
+    [Test]
+    public async Task ScreenshotExpectedFailure()
+    {
+        // https://playwright.dev/dotnet/docs/api/class-page#page-screenshot
+        await page.GotoAsync("https://portal.cirrusinsite.com/");
+        var viewPortScreenshot = Image.Load(new MemoryStream(await page.ScreenshotAsync()));
+        var fullSizeScreenshot = Image.Load(new MemoryStream(await page.ScreenshotAsync((new PageScreenshotOptions { FullPage = true }))));
+        var isEqual = ImageSharpCompare.ImagesAreEqual(viewPortScreenshot, fullSizeScreenshot);
+        Assert.That(isEqual, Is.EqualTo(false));
+    }
+}
+```
