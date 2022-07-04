@@ -139,7 +139,7 @@ namespace Playwright.Custom.NUnit
     };
 }
 ```
-
+## Change Browser Context & Tracing Options
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -234,11 +234,16 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 
 ### **Tracing**
 [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
-Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingStartOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest. View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
+Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest. View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
 
-[Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+### [Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 
-### **Video**
+- ### Add Browser.NewContextAsync(options)
+  Set context options in ContextOptions method in in the class ContextTest.
+
+- ### **Video**
+  Enable video recording by setting the environment variable VIDEO to 1. Change video options in ContextOptions method in the class ContextTest. Video is saved in folder called videos in \bin\Debug\net6.0. 
+[Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
 ### **Browser**
 [BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used. Three options: 'chromium', 'webkit' or 'firefox'
 
