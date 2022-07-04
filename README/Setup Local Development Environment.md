@@ -141,8 +141,8 @@ namespace Playwright.Custom.NUnit
 ```
 ```
 <EnvironmentVariables>
+    <PWDEBUG>0</PWDEBUG>
 		<HEADED>0</HEADED>
-		<PWDEBUG>0</PWDEBUG>
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
     <TRACING>0</TRACING>
@@ -150,7 +150,23 @@ namespace Playwright.Custom.NUnit
 		<BROWSER>chromium</BROWSER>
 </EnvironmentVariables>
 ```
-## Run Configuration Environment Variables
-### PWDEBUG
-### Headed
-### SLOWMO
+## Run Configuration Environment Variables in dev.runsettings
+### **PWDEBUG**
+Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
+- Runs headed: Browsers always launch in headed mode
+- Disables timeout: Sets default timeout to 0 (= no timeout)
+- Console helper: Configures a playwright object in the browser to generate and highlight Playwright selectors. This can be used to verify text or composite selectors.
+- Allows you to step over code line by line
+
+### **BrowserType.LaunchAsync(options)**
+
+#### **Headed**
+Set environment variable HEADED to 1 to launch in headed mode. Headed browser is a browser with a user interface. Running it in headed means it allows you to see the execution of your automated scripts in a full browser.
+#### **Slowmo**
+ ```<double?> ``` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+#### **Timeout**
+```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
+### **Tracing**
+### **Video**
+### **Browser**
+
