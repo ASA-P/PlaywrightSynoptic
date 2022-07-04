@@ -19,7 +19,6 @@ namespace Playwright.Custom.NUnit
 
             if (!authenticated)
             {
-                
                 await page.GotoAsync("https://github.com/login");
                 try
                 {
