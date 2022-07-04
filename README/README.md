@@ -153,6 +153,8 @@ namespace Playwright.Custom.NUnit
 		<PWDEBUG>0</PWDEBUG>
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
+    <TRACING>0</TRACING>
+		<VIDEO>0</VIDEO>
 		<BROWSER>chromium</BROWSER>
 </EnvironmentVariables>
 ```
@@ -182,16 +184,40 @@ namespace Playwright.Custom.NUnit
     public class ContextUsingAuthenticationFileTest : BrowserTest
     {
         public IBrowserContext Context { get; set; }
+        private bool Tracing { get; set; }
+        private bool Video { get; set; }
 
         public virtual BrowserNewContextOptions ContextOptions()
         {
-            // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
-            if (File.Exists("state.json"))
-            {
-                return new BrowserNewContextOptions
+            var contextOptions = new BrowserNewContextOptions { };
+
+            if (Video || File.Exists("state.json")) { 
+                // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
+                if (File.Exists("state.json"))
                 {
-                    StorageStatePath = "state.json"
-                };
+                    contextOptions.StorageStatePath =  "state.json";
+                }
+                if (Video)
+                {
+                    contextOptions.RecordVideoDir = "videos/";
+                }
+                return contextOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public virtual TracingStartOptions TracingOptions()
+        {
+            if (Tracing)
+            {
+                var tracingStartOptions = new TracingStartOptions { };
+                tracingStartOptions.Screenshots = true;
+                tracingStartOptions.Snapshots = true;
+                tracingStartOptions.Sources = true;
+                return tracingStartOptions;
             }
             else
             {
@@ -202,7 +228,24 @@ namespace Playwright.Custom.NUnit
         [SetUp]
         public async Task ContextSetup()
         {
-            Context = await NewContext(ContextOptions()).ConfigureAwait(false);
+            Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
+            Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
+            Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
+        }
+
+        [TearDown]
+        public async Task ContextTearDown()
+        {
+            if (Tracing)
+            {
+                var dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
+                dateTime = dateTime.Replace(':', '.');
+                // Stop tracing and export it into a zip archive.
+                await Context.Tracing.StopAsync(new TracingStopOptions
+                {
+                    Path = "trace/ " + dateTime + ".zip"
+                });
+            }
         }
     }
 }
@@ -214,7 +257,7 @@ namespace Playwright.Custom.NUnit
     public class PageTestAuthenticationTemplate : ContextUsingAuthenticationFileTest
     {
         public IPage page { get; private set; }
-        private bool authenticated { get; set; }
+        private bool Authenticated { get; set; }
 
         [SetUp]
         public async Task PageSetup()
@@ -222,9 +265,10 @@ namespace Playwright.Custom.NUnit
             page = await Context.NewPageAsync().ConfigureAwait(false);
             // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
             page.SetDefaultNavigationTimeout(100000);
-            authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : authenticated;
+            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : Authenticated;
 
-            if (!authenticated)
+            // Verify authentication file or create authentication file
+            if (!Authenticated)
             {
                 await page.GotoAsync("https://github.com/login");
                 try
@@ -254,7 +298,7 @@ namespace Playwright.Custom.NUnit
                 }
                 finally
                 {
-                    authenticated = true;
+                    Authenticated = true;
                 }
             }
         }
