@@ -17,6 +17,7 @@ Click the top left button to view classes like the page class: https://playwrigh
 
 ## Creating Project
 - Open Visual Studio and create a blank project
+
 ![Image ](Images/OpenVisualStudioandcreateablankproject.png?raw=true)
 
 - Open Developer PowerShell 
