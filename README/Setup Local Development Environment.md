@@ -139,6 +139,71 @@ namespace Playwright.Custom.NUnit
     };
 }
 ```
+
+```
+namespace Playwright.Custom.NUnit
+{
+    public class ContextTest : BrowserTest
+    {
+        public IBrowserContext Context { get; private set; }
+        private bool Tracing { get; set; }
+        private bool Video { get; set; }
+
+        public virtual BrowserNewContextOptions ContextOptions()
+        {
+            var contextOptions = new BrowserNewContextOptions { };
+            if (Video)
+            {
+                contextOptions.RecordVideoDir = "videos/";
+                return contextOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public virtual TracingStartOptions TracingOptions()
+        {
+            if (Tracing)
+            {
+                var tracingStartOptions = new TracingStartOptions { };
+                tracingStartOptions.Screenshots = true;
+                tracingStartOptions.Snapshots = true;
+                tracingStartOptions.Sources = true;
+                return tracingStartOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [SetUp]
+        public async Task ContextSetup()
+        {
+            Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
+            Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
+            Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
+        }
+
+        [TearDown]
+        public async Task ContextTearDown()
+        {
+            if (Tracing)
+            {
+                var dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
+                dateTime = dateTime.Replace(':', '.');
+                // Stop tracing and export it into a zip archive.
+                await Context.Tracing.StopAsync(new TracingStopOptions
+                {
+                    Path = "trace/ " + dateTime + ".zip"
+                });
+            }
+        }
+    }
+}
+```
 ```
 <EnvironmentVariables>
     <PWDEBUG>0</PWDEBUG>
@@ -159,14 +224,19 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 - Allows you to step over code line by line
 
 ### **BrowserType.LaunchAsync(options)**
+- #### **Headed**
+  Set environment variable HEADED to 1 to launch in headed mode. Headed browser is a browser with a user interface. Running it in headed means it allows you to see the execution of your automated scripts in a full browser.
+- #### **Slowmo**
+  ```<double?> ``` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+- #### **Timeout**
+  ```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
+[See other options] (https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 
-#### **Headed**
-Set environment variable HEADED to 1 to launch in headed mode. Headed browser is a browser with a user interface. Running it in headed means it allows you to see the execution of your automated scripts in a full browser.
-#### **Slowmo**
- ```<double?> ``` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
-#### **Timeout**
-```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
+[Browser.NewContextAsync(options)
+](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 ### **Tracing**
+[Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+
 ### **Video**
 ### **Browser**
 
