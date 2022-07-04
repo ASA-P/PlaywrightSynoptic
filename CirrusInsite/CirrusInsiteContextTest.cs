@@ -54,14 +54,6 @@ namespace Playwright.Custom.NUnit
         {
             Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
             Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
-            //if (Tracing)
-            //{
-            //    Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
-            //}
-            //else
-            //{
-            //    Context = await NewContext(ContextOptions()).ConfigureAwait(false);
-            //}
             Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
         }
 

@@ -15,8 +15,7 @@ namespace Playwright.Custom.NUnit
                 {
                     Headless = Environment.GetEnvironmentVariable("HEADED") != "1",
                     SlowMo = float.Parse(Environment.GetEnvironmentVariable("SLOWMO") ?? "0", System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
-                    Timeout = float.Parse(Environment.GetEnvironmentVariable("TIMEOUT") ?? "60000", System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
-                    //TracesDir = Directory.GetCurrentDirectory()
+                    Timeout = float.Parse(Environment.GetEnvironmentVariable("TIMEOUT") ?? "60000", System.Globalization.CultureInfo.InvariantCulture.NumberFormat)
                 }).ConfigureAwait(false)
             });;
         }
