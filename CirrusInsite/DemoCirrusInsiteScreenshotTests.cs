@@ -18,6 +18,7 @@ public class DemoCirrusInsiteScreenshotTests : CirrusInsitePageTest
             FullPage = true
         });
         var isEqual = ImageSharpCompare.ImagesAreEqual("screenshot.jpg", "screenshot.jpg");
+        File.Delete("screenshot.jpg");
         Assert.That(isEqual, Is.EqualTo(true));
     }
 
@@ -42,6 +43,7 @@ public class DemoCirrusInsiteScreenshotTests : CirrusInsitePageTest
             Path = "screenshot.jpg"
         });
         var isEqual = ImageSharpCompare.ImagesAreEqual("screenshot.jpg", "screenshot.jpg");
+        File.Delete("screenshot.jpg");
         Assert.That(isEqual, Is.EqualTo(true));
     }
 

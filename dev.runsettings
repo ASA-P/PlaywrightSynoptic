@@ -13,6 +13,8 @@
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
 		<BROWSER>chromium</BROWSER>
+		<TRACING>1</TRACING>
+		<VIDEO>1</VIDEO>
 		<SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
 	</EnvironmentVariables>
   </RunConfiguration>

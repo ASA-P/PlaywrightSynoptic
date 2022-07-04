@@ -7,7 +7,7 @@ namespace Playwright.Custom.NUnit
     public class PageTestAuthenticationTemplate : ContextUsingAuthenticationFileTest
     {
         public IPage page { get; private set; }
-        private bool authenticated { get; set; }
+        private bool Authenticated { get; set; }
 
         [SetUp]
         public async Task PageSetup()
@@ -15,9 +15,9 @@ namespace Playwright.Custom.NUnit
             page = await Context.NewPageAsync().ConfigureAwait(false);
             // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
             page.SetDefaultNavigationTimeout(100000);
-            authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATION") == "1") ? true : authenticated;
+            Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATION") == "1") ? true : Authenticated;
 
-            if (!authenticated)
+            if (!Authenticated)
             {
                 await page.GotoAsync("https://github.com/login");
                 try
@@ -47,7 +47,7 @@ namespace Playwright.Custom.NUnit
                 }
                 finally
                 {
-                    authenticated = true;
+                    Authenticated = true;
                 }
             }
         }

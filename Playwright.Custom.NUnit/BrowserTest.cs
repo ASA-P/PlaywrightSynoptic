@@ -9,9 +9,19 @@ namespace Playwright.Custom.NUnit
         public IBrowser Browser { get; internal set; }
         private readonly List<IBrowserContext> _contexts = new();
 
-        public async Task<IBrowserContext> NewContext(BrowserNewContextOptions options)
+        public async Task<IBrowserContext> NewContext(BrowserNewContextOptions options, TracingStartOptions tracingOptions = null)
         {
             var context = await Browser.NewContextAsync(options).ConfigureAwait(false);
+            if (tracingOptions is not null)
+            {
+                await context.Tracing.StartAsync(new TracingStartOptions
+                {
+                    Screenshots = tracingOptions.Screenshots,
+                    Snapshots = tracingOptions.Snapshots,
+                    Sources = tracingOptions.Sources
+                });
+            }
+            
             _contexts.Add(context);
             return context;
         }
