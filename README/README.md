@@ -121,6 +121,46 @@ public class Tests : PageTest
     - Select the individual tests that you want to run, open the right-click menu for a selected test and then choose Run Selected Tests (or press Ctrl + R, T).
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
+## Change Browser Options
+```
+namespace Playwright.Custom.NUnit
+{
+    public class BrowserService : IWorkerService
+    {
+        public IBrowser Browser { get; internal set; }
+
+        public static Task<BrowserService> Register(WorkerAwareTest test, IBrowserType browserType)
+        {
+            return test.RegisterService("Browser", async () => new BrowserService
+            {
+                Browser = await browserType.LaunchAsync(new()
+                {
+                    Headless = Environment.GetEnvironmentVariable("HEADED") != "1",
+                    SlowMo = float.Parse(Environment.GetEnvironmentVariable("SLOWMO") ?? "0", System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+                    Timeout = float.Parse(Environment.GetEnvironmentVariable("TIMEOUT") ?? "60000", System.Globalization.CultureInfo.InvariantCulture.NumberFormat)
+                }).ConfigureAwait(false)
+            });;
+        }
+
+        public Task ResetAsync() => Task.CompletedTask;
+        public Task DisposeAsync() => Browser.CloseAsync();
+    };
+}
+```
+```
+<EnvironmentVariables>
+		<HEADED>0</HEADED>
+		<PWDEBUG>0</PWDEBUG>
+		<TIMEOUT>0</TIMEOUT>
+		<SLOWMO>0</SLOWMO>
+		<BROWSER>chromium</BROWSER>
+</EnvironmentVariables>
+```
+## Run Configuration Environment Variables
+### PWDEBUG
+### Headed
+### SLOWMO
+
 # Add Authentication
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 - Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
@@ -307,11 +347,6 @@ Knowing that an element is included in the DOM might not be enough for us to pro
 **How to avoid confusion**
 Either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect.
 
-## The Playwright Inspector
-The Playwright Inspector is a GUI tool which exposes additional debugging functionality, and can be launched using PWDEBUG=1 npm run test.
-
-The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in getting to the root cause of some of the more generic errors.
-
 ## Choosing selectors
 
 The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
@@ -361,8 +396,41 @@ Avoid this kind of selector whenever possible:
   - likely not stable: the text might change for multiple reasons (restyling, localisation…)
   - likely not unique: is it always going to be the right element?
 
-# Best Practices
+## Debugging Tools
+**Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
+Run in Debug Mode
+Set the PWDEBUG environment variable to run your scripts in debug mode. Using PWDEBUG=1 will open Playwright Inspector.
 
+Using PWDEBUG=console will configure the browser for debugging in Developer tools console:
+
+Runs headed: Browsers always launch in headed mode
+Disables timeout: Sets default timeout to 0 (= no timeout)
+Console helper: Configures a playwright object in the browser to generate and highlight Playwright selectors. This can be used to verify text or composite selectors.
+
+### The Playwright Inspector
+The Playwright Inspector is a GUI tool which exposes additional debugging functionality.
+
+The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in getting to the root cause of some of the more generic errors.
+
+### Run in headed mode
+Playwright runs browsers in headless mode by default. 
+
+### slowMo
+ You can also use the slowMo option to slow down execution and follow along while debugging.
+
+https://playwright.dev/dotnet/docs/api/class-page#page-pause
+Using a page.pause() method is an easy way to pause the Playwright script execution and inspect the page in Developer tools. It will also open Playwright Inspector to help with debugging.
+
+Page.PauseAsync()
+returns: <void>#
+Pauses script execution. Playwright will stop executing the script and wait for the user to either press 'Resume' button in the page overlay or to call playwright.resume() in the DevTools console.
+
+User can inspect selectors or perform manual steps while paused. Resume will continue running the original script from the place it was paused.
+
+NOTE
+This method requires Playwright to be started in a headed mode, with a falsy headless value in the BrowserType.LaunchAsync(options).
+
+# Best Practices
 ## Keeping tests valuable
 
 1. Tests should be reliable and informative in order to be useful.
