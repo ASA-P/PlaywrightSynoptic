@@ -230,7 +230,7 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
   ```<double?> ``` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
 - #### **Timeout**
   ```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
-[See other options] (https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
+[See other options](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 
 ### **Tracing**
 [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
@@ -240,4 +240,5 @@ Set environment variable tracing to 1 to enable tracing. View trace file in trac
 
 ### **Video**
 ### **Browser**
+[BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used. Three options: 'chromium', 'webkit' or 'firefox'
 
