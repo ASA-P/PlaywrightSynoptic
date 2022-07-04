@@ -1,12 +1,3 @@
-# Useful Links
-Playwright .NET website: https://playwright.dev/dotnet/ <br />
-Playwright .NET docs: https://playwright.dev/dotnet/docs/intro <br />
-Guides: Click the top left button to view guides on https://playwright.dev/dotnet/docs/intro <br />
-![Image ](Images/TopLeftButton.png?raw=true)<br />
-Playwright .NET Application Programming Interface: https://playwright.dev/dotnet/docs/api/class-playwright <br />
-Click the top left button to view classes like the page class: https://playwright.dev/dotnet/docs/api/class-page
- 
-
 # Playwright .Net Setup
 
 ## Prerequisites
@@ -164,8 +155,16 @@ namespace Playwright.Custom.NUnit
 ### Headed
 ### SLOWMO
 
- # Online Demo of Playwright 
-### [Demos:](https://try.playwright.tech/?l=csharp)
+# Useful Links
+Playwright .NET website: https://playwright.dev/dotnet/ <br />
+Playwright .NET docs: https://playwright.dev/dotnet/docs/intro <br />
+Guides: Click the top left button to view guides on https://playwright.dev/dotnet/docs/intro <br />
+![Image ](Images/TopLeftButton.png?raw=true)<br />
+Playwright .NET Application Programming Interface: https://playwright.dev/dotnet/docs/api/class-playwright <br />
+Click the top left button to view classes like the page class: https://playwright.dev/dotnet/docs/api/class-page
+ 
+### Online Demo of Playwright 
+#### [Demos:](https://try.playwright.tech/?l=csharp)
 - [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
 
 - [Generate PDF:](https://try.playwright.tech/?l=csharp&e=generate-pdf) This code snippet navigates to the Playwright GitHub repository and generates a PDF file and saves it to disk. 
@@ -173,7 +172,6 @@ namespace Playwright.Custom.NUnit
 - [Request and response logging:](https://try.playwright.tech/?l=csharp&e=request-logging) This example will navigate to example.com and log all its request methods and URLs and for the response the status. 
 
 - [Device emulation:](https://try.playwright.tech/?l=csharp&e=device-emulation) This example emulates a Pixel 2 and creates a screenshot with its screen size. 
-
 
 # Debugging 
 Understanding why a script does not work as expected and finding the failure root cause are automation key skills. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention.
