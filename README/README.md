@@ -342,13 +342,12 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
 # Debugging 
 Understanding why a script does not work as expected and finding the failure root cause are automation key skills. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention.
 
-This article will explore basic concepts and tools to point beginners in the right direction.
-
 Awareness comes first
 Script debugging is firstly about observing and understanding. Finding out what is causing the failure (or misbehaviour) in your execution heavily depends on your knowledge of:
 
-What the script you are looking at is supposed to do
-How the application the script is running against is supposed to behave at each step of the script
+1. What the script you are looking at is supposed to do
+2. How the application the script is running against is supposed to behave at each step of the script
+
 When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any.
 
 The error message
@@ -391,55 +390,6 @@ Knowing that an element is included in the DOM might not be enough for us to pro
 
 **How to avoid confusion**
 Either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect.
-
-## Choosing selectors
-
-The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
-
-The attributes of a good selector are:
-
-- **Uniqueness:** choose a selector that will identify the target element, and nothing else; **IDs** are the natural choice, when available.
-- **Stability:** use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
-- **Conciseness:** prefer short selectors that are easier to read, understand and possibly replace if a script breaks.
-
-### Examples of (potentially) good selectors
-The following might be good selectors:
-
-1. ```#elementId```
-    - concise
-    - unique, as long as the page contains **valid HTML**
-    - generally stable
-2. ```a[data-something=value]```
-    - concise
-    - unique, as long as ```value``` is
-    - potentially stable, as long as ```value``` does not change very often
-3. ```#overlay.close-button```
-    - concise
-    - unique, as long as only one element has class ```.close-button```
-    - potentially stable, as long as ```.close-button``` does not change very often
-4. ```div[@data-testid="cta"]```
-    - concise
-    - unique, as long as only one element has attribute ```data-testid``` equal to ```cta```
-    - potentially stable, as long as ```data-testid``` is not changed often
-
-### Examples of bad selectors
-Avoid this kind of selector whenever possible:
-
-1. ```.A8SBwf > .RNNXgb > .SDkEP > .a4bIc > .gLFyf```
-  - not concise
-  - likely not stable: class names are auto-generated, they could change rapidly
-2. ```.g:nth-child(3) > .rc```
-  - likely not stable: is the third child of ```.g``` always going to be present?
-  - likely not unique: is it always going to be the right element?
-3. ```a[data-v-9a19ef14]```
-  - not stable: attribute is **auto-generated** and changes between deployments
-  - likely not unique: is it always going to be the right element?
-4. ```//div[1]/table[1]/tbody/tr[7]/td/a```
-  - not concise
-  - likely not stable: reliant on a precise page structure; extremely brittle
-5. ```text=Continue```
-  - likely not stable: the text might change for multiple reasons (restyling, localisation…)
-  - likely not unique: is it always going to be the right element?
 
 ## Debugging Tools
 **Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
@@ -510,6 +460,55 @@ Oftentimes this is impeded by the tendency to have tests do too much. While it m
 We can avoid this pitfall by making sure our tests are verifying only one feature each.
 
     Always check the assertions in your test: if they are spanning more than one feature, you would likely be better off splitting your test into multiple different ones.
+
+## Choosing selectors
+
+The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
+
+The attributes of a good selector are:
+
+- **Uniqueness:** choose a selector that will identify the target element, and nothing else; **IDs** are the natural choice, when available.
+- **Stability:** use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
+- **Conciseness:** prefer short selectors that are easier to read, understand and possibly replace if a script breaks.
+
+### Examples of (potentially) good selectors
+The following might be good selectors:
+
+1. ```#elementId```
+    - concise
+    - unique, as long as the page contains **valid HTML**
+    - generally stable
+2. ```a[data-something=value]```
+    - concise
+    - unique, as long as ```value``` is
+    - potentially stable, as long as ```value``` does not change very often
+3. ```#overlay.close-button```
+    - concise
+    - unique, as long as only one element has class ```.close-button```
+    - potentially stable, as long as ```.close-button``` does not change very often
+4. ```div[@data-testid="cta"]```
+    - concise
+    - unique, as long as only one element has attribute ```data-testid``` equal to ```cta```
+    - potentially stable, as long as ```data-testid``` is not changed often
+
+### Examples of bad selectors
+Avoid this kind of selector whenever possible:
+
+1. ```.A8SBwf > .RNNXgb > .SDkEP > .a4bIc > .gLFyf```
+  - not concise
+  - likely not stable: class names are auto-generated, they could change rapidly
+2. ```.g:nth-child(3) > .rc```
+  - likely not stable: is the third child of ```.g``` always going to be present?
+  - likely not unique: is it always going to be the right element?
+3. ```a[data-v-9a19ef14]```
+  - not stable: attribute is **auto-generated** and changes between deployments
+  - likely not unique: is it always going to be the right element?
+4. ```//div[1]/table[1]/tbody/tr[7]/td/a```
+  - not concise
+  - likely not stable: reliant on a precise page structure; extremely brittle
+5. ```text=Continue```
+  - likely not stable: the text might change for multiple reasons (restyling, localisation…)
+  - likely not unique: is it always going to be the right element?
 
 # Playwright Tools
 ### Generate code / selectors
