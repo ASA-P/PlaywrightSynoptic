@@ -234,7 +234,7 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 
 ### **Tracing**
 [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
-Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingStartOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest.
+Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingStartOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest. View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
 
 [Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 
