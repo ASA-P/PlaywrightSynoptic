@@ -134,11 +134,41 @@ public class Tests : PageTest
 ```
 <SKIPAUTHENTICATION>0</SKIPAUTHENTICATION>
 ```
+## **Explanation**
+### **Context Class**
 ```
-using NUnit.Framework;
-using Microsoft.Playwright;
-using System.Threading.Tasks;
+namespace Playwright.Custom.NUnit
+{
+    public class ContextUsingAuthenticationFileTest : BrowserTest
+    {
+        public IBrowserContext Context { get; set; }
 
+        public virtual BrowserNewContextOptions ContextOptions()
+        {
+            // Use StorageStatePath if state.json exists.state.json contains aunthentication cookies etc.
+            if (File.Exists("state.json"))
+            {
+                return new BrowserNewContextOptions
+                {
+                    StorageStatePath = "state.json"
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [SetUp]
+        public async Task ContextSetup()
+        {
+            Context = await NewContext(ContextOptions()).ConfigureAwait(false);
+        }
+    }
+}
+```
+### **Page Class**
+```
 namespace Playwright.Custom.NUnit
 {
     public class PageTestAuthenticationTemplate : ContextUsingAuthenticationFileTest
@@ -188,6 +218,23 @@ namespace Playwright.Custom.NUnit
                 }
             }
         }
+    }
+}
+```
+### **Login Test**
+Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings:
+```
+<Parameter name="UserName" value=""/>
+<Parameter name="Password" value=""/>
+```
+```
+public class AuthenticationTemplateTest : PageTestAuthenticationTemplate
+{
+    [Test]
+    public async Task Login()
+    {
+        await page.GotoAsync("https://github.com/login");
+        Assert.That(page.Url, Is.EqualTo("https://github.com/"));
     }
 }
 ```
