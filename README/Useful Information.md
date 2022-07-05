@@ -70,37 +70,35 @@ Either walk through the execution in headful mode or take screenshots before and
 
 ## Debugging Tools
 **Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
-Run in Debug Mode
+
+#### **Run in Debug Mode**
 Set the PWDEBUG environment variable to run your scripts in debug mode. Using PWDEBUG=1 will open Playwright Inspector.
 
 Using PWDEBUG=console will configure the browser for debugging in Developer tools console:
 
-Runs headed: Browsers always launch in headed mode
-Disables timeout: Sets default timeout to 0 (= no timeout)
-Console helper: Configures a playwright object in the browser to generate and highlight Playwright selectors. This can be used to verify text or composite selectors.
+- Runs headed: Browsers always launch in headed mode
+- Disables timeout: Sets default timeout to 0 (= no timeout)
+- Console helper: Configures a playwright object in the browser to generate and highlight Playwright selectors. This can be used to verify text or composite selectors.
+- - Allows you to step over code line by line
 
-### The Playwright Inspector
+#### **The Playwright Inspector**
 The Playwright Inspector is a GUI tool which exposes additional debugging functionality.
 
 The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in getting to the root cause of some of the more generic errors.
 
-### Run in headed mode
+#### **Run in headed mode**
 Playwright runs browsers in headless mode by default. 
 
-### slowMo
+#### **slowMo**
  You can also use the slowMo option to slow down execution and follow along while debugging.
 
 https://playwright.dev/dotnet/docs/api/class-page#page-pause
 Using a page.pause() method is an easy way to pause the Playwright script execution and inspect the page in Developer tools. It will also open Playwright Inspector to help with debugging.
 
-Page.PauseAsync()
-returns: <void>#
+#### **Page.PauseAsync()**
 Pauses script execution. Playwright will stop executing the script and wait for the user to either press 'Resume' button in the page overlay or to call playwright.resume() in the DevTools console.
 
-User can inspect selectors or perform manual steps while paused. Resume will continue running the original script from the place it was paused.
-
-NOTE
-This method requires Playwright to be started in a headed mode, with a falsy headless value in the BrowserType.LaunchAsync(options).
+User can inspect selectors or perform manual steps while paused. Resume will continue running the original script from the place it was paused. This method requires Playwright to be started in a headed mode.
 
 # Best Practices
 ## Keeping tests valuable

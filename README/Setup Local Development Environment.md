@@ -139,10 +139,75 @@ namespace Playwright.Custom.NUnit
     };
 }
 ```
+## Change Browser Context & Tracing Options
+```
+namespace Playwright.Custom.NUnit
+{
+    public class ContextTest : BrowserTest
+    {
+        public IBrowserContext Context { get; private set; }
+        private bool Tracing { get; set; }
+        private bool Video { get; set; }
+
+        public virtual BrowserNewContextOptions ContextOptions()
+        {
+            var contextOptions = new BrowserNewContextOptions { };
+            if (Video)
+            {
+                contextOptions.RecordVideoDir = "videos/";
+                return contextOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public virtual TracingStartOptions TracingOptions()
+        {
+            if (Tracing)
+            {
+                var tracingStartOptions = new TracingStartOptions { };
+                tracingStartOptions.Screenshots = true;
+                tracingStartOptions.Snapshots = true;
+                tracingStartOptions.Sources = true;
+                return tracingStartOptions;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [SetUp]
+        public async Task ContextSetup()
+        {
+            Tracing = (Environment.GetEnvironmentVariable("TRACING") == "1") ? true : false;
+            Video = (Environment.GetEnvironmentVariable("VIDEO") == "1") ? true : false;
+            Context = await NewContext(ContextOptions(), TracingOptions()).ConfigureAwait(false);
+        }
+
+        [TearDown]
+        public async Task ContextTearDown()
+        {
+            if (Tracing)
+            {
+                var dateTime = DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss");
+                dateTime = dateTime.Replace(':', '.');
+                // Stop tracing and export it into a zip archive.
+                await Context.Tracing.StopAsync(new TracingStopOptions
+                {
+                    Path = "trace/ " + dateTime + ".zip"
+                });
+            }
+        }
+    }
+}
+```
 ```
 <EnvironmentVariables>
+    <PWDEBUG>0</PWDEBUG>
 		<HEADED>0</HEADED>
-		<PWDEBUG>0</PWDEBUG>
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
     <TRACING>0</TRACING>
@@ -150,7 +215,35 @@ namespace Playwright.Custom.NUnit
 		<BROWSER>chromium</BROWSER>
 </EnvironmentVariables>
 ```
-## Run Configuration Environment Variables
-### PWDEBUG
-### Headed
-### SLOWMO
+## Run Configuration Environment Variables in dev.runsettings
+### **PWDEBUG**
+Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
+- Runs headed: Browsers always launch in headed mode
+- Disables timeout: Sets default timeout to 0 (= no timeout)
+- Console helper: Configures a playwright object in the browser to generate and highlight Playwright selectors. This can be used to verify text or composite selectors.
+- Allows you to step over code line by line
+
+### **BrowserType.LaunchAsync(options)**
+- #### **Headed**
+  Set environment variable HEADED to 1 to launch in headed mode. Headed browser is a browser with a user interface. Running it in headed means it allows you to see the execution of your automated scripts in a full browser.
+- #### **Slowmo**
+  ```<double?> ``` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+- #### **Timeout**
+  ```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
+[See other options](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
+
+### **Tracing**
+[Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest. View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
+
+### [Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+
+- ### Add Browser.NewContextAsync(options)
+  Set context options in ContextOptions method in in the class ContextTest.
+
+- ### **Video**
+  Enable video recording by setting the environment variable VIDEO to 1. Change video options in ContextOptions method in the class ContextTest. Video is saved in folder called videos in \bin\Debug\net6.0. 
+[Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
+### **Browser**
+[BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used. Three options: 'chromium', 'webkit' or 'firefox'
+
