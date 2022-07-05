@@ -197,11 +197,13 @@ namespace Playwright.Custom.NUnit
 ```
 ### **Login Test**
 
-Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings:
+Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings for the test to pass:
 ```
 <Parameter name="UserName" value=""/>
 <Parameter name="Password" value=""/>
 ```
+To skip authentication set the environment variable ```<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>``` in dev.runsettings to 1. 
+
 ```
 public class AuthenticationTemplateTest : PageTestAuthenticationTemplate
 {
