@@ -35,11 +35,12 @@ await page.Locator("header").ScreenshotAsync(new LocatorScreenshotOptions
 ## Using Image Comparison
 
 #### **Install the [Codeuctivity.ImageSharpCompare Nuget Package](https://www.nuget.org/packages/Codeuctivity.ImageSharpCompare/) to compare images for visual differences.**
+Run in Developer PowerShell:
 
 ```dotnet add package ImageSharpCompare --version 1.2.11```
 
 
-### **Below code snippet demonstrates how to use playwright screen shot functionality and image comparison tools**
+### **Below code snippet demonstrates how to use playwright screenshot functionality and image comparison tools**
 
 
 ```
