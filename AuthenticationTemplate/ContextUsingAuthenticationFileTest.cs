@@ -5,6 +5,7 @@ namespace Playwright.Custom.NUnit
     public class ContextUsingAuthenticationFileTest : BrowserTest
     {
         public IBrowserContext Context { get; set; }
+        public bool ExistingAuthenticationFile { get; set; }
         private bool Tracing { get; set; }
         private bool Video { get; set; }
 
@@ -17,6 +18,11 @@ namespace Playwright.Custom.NUnit
                 if (File.Exists("state.json"))
                 {
                     contextOptions.StorageStatePath =  "state.json";
+                    ExistingAuthenticationFile = true;
+                }
+                else
+                {
+                    ExistingAuthenticationFile = false;
                 }
                 if (Video)
                 {

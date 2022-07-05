@@ -5,8 +5,10 @@ namespace Playwright.Custom.NUnit
     public class CirrusInsiteContextTest : BrowserTest
     {
         public IBrowserContext Context { get; set; }
+        public bool ExistingAuthenticationFile { get; set; }
         private bool Tracing { get; set; }
         private bool Video { get; set; }
+        
 
 
         public virtual BrowserNewContextOptions ContextOptions()
@@ -19,6 +21,11 @@ namespace Playwright.Custom.NUnit
                 if (File.Exists("cirrusInsiteState.json"))
                 {
                     contextOptions.StorageStatePath = "cirrusInsiteState.json";
+                    ExistingAuthenticationFile = true;
+                }
+                else
+                {
+                    ExistingAuthenticationFile = false;
                 }
                 if (Video)
                 {

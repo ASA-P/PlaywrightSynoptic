@@ -12,45 +12,49 @@ namespace Playwright.Custom.NUnit
         [SetUp]
         public async Task PageSetup()
         {
+            // Create Page
             page = await Context.NewPageAsync().ConfigureAwait(false);
             // https://playwright.dev/dotnet/docs/api/class-page#page-set-default-navigation-timeout
             page.SetDefaultNavigationTimeout(100000);
+            // Check if SKIPAUTHENTICATIONVERIFICATION is enabled
             Authenticated = (Environment.GetEnvironmentVariable("SKIPAUTHENTICATIONVERIFICATION") == "1") ? true : Authenticated;
 
             // Verify authentication file or create authentication file
             if (!Authenticated)
             {
                 await page.GotoAsync("https://portal.cirrusinsite.com/");
-                try
+                if (ExistingAuthenticationFile)
                 {
-                    await Expect(page).ToHaveURLAsync("https://portal.cirrusinsite.com/");
-                }
-                catch(Exception e) {
-                    // Verify Authentication
-                    if (page.Url != "https://portal.cirrusinsite.com/")
+                    try
                     {
-                        // Fill [placeholder="Username"]
-                        await page.Locator("[placeholder=\"Username\"]").FillAsync(TestContext.Parameters["CirrusInsiteUserName"]);
-                        // Fill [placeholder="Password"]
-                        await page.Locator("[placeholder=\"Password\"]").FillAsync(TestContext.Parameters["CirrusInsitePassword"]);
-                        // Press Enter
-                        await page.Locator("[placeholder=\"Password\"]").PressAsync("Enter");
-                        // Click text=Skip for now (not recommended)
-                        await page.RunAndWaitForNavigationAsync(async () =>
+                        await Expect(page).ToHaveURLAsync("https://portal.cirrusinsite.com/");
+                        if(page.Url == "https://portal.cirrusinsite.com/")
                         {
-                            await page.Locator("text=Skip for now (not recommended)").ClickAsync();
-                        });
-                        // Save storage state into the file.
-                        await Context.StorageStateAsync(new BrowserContextStorageStateOptions
-                        {
-                            Path = "cirrusInsiteState.json"
-                        });
+                            Authenticated = true;
+                            return;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Authentication file not working");
                     }
                 }
-                finally
+                // Fill [placeholder="Username"]
+                await page.Locator("[placeholder=\"Username\"]").FillAsync(TestContext.Parameters["CirrusInsiteUserName"]);
+                // Fill [placeholder="Password"]
+                await page.Locator("[placeholder=\"Password\"]").FillAsync(TestContext.Parameters["CirrusInsitePassword"]);
+                // Press Enter
+                await page.Locator("[placeholder=\"Password\"]").PressAsync("Enter");
+                // Click text=Skip for now (not recommended)
+                await page.RunAndWaitForNavigationAsync(async () =>
                 {
-                    Authenticated = true;
-                }
+                    await page.Locator("text=Skip for now (not recommended)").ClickAsync();
+                });
+                // Save storage state into the file.
+                await Context.StorageStateAsync(new BrowserContextStorageStateOptions
+                {
+                    Path = "cirrusInsiteState.json"
+                });
             }
         }
     }
