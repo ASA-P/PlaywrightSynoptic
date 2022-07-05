@@ -12,6 +12,40 @@
 <SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
 ```
 ## **Explanation**
+
+[Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
+
+Playwright can be used to automate scenarios that require authentication.
+
+Tests written with Playwright execute in isolated clean-slate environments called browser contexts.  New browser contexts can load existing authentication state. This eliminates the need to login in every context and speeds up test execution. (logging in via the app UI) cookie/token-based authentication
+
+### Automate logging in
+The Playwright API can automate interaction with a login form.
+```
+// Fill input[name="login"]
+await page.Locator("input[name=\"login\"]").FillAsync(TestContext.Parameters["UserName"]);
+// Fill input[name="password"]
+await page.Locator("input[name=\"password\"]").FillAsync(TestContext.Parameters["Password"]);
+// Press Enter
+await page.RunAndWaitForNavigationAsync(async () =>
+{
+    await page.Locator("input[name=\"password\"]").PressAsync("Enter");
+});
+```
+These steps can be executed for every browser context. However, redoing login for every test can slow down test execution. To prevent that, we will reuse existing authentication state in new browser contexts.
+
+### Reuse authentication state
+Web apps use cookie-based or token-based authentication, where authenticated state is stored as cookies or in local storage. Playwright provides BrowserContext.StorageStateAsync(options) method that can be used to retrieve storage state from authenticated contexts and then create new contexts with prepopulated state.
+
+Cookies and local storage state can be used across different browsers. They depend on your application's authentication model: some apps might require both cookies and local storage.
+
+```
+// Save storage state into the file.
+await Context.StorageStateAsync(new BrowserContextStorageStateOptions
+{
+    Path = "state.json"
+});
+```
 ### **Context Class**
 ```
 namespace Playwright.Custom.NUnit
@@ -86,6 +120,7 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ### **Page Class**
+
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -141,6 +176,7 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ### **Login Test**
+
 Enter your github username and password into the below ```<TestRunParameters>``` in dev.runsettings:
 ```
 <Parameter name="UserName" value=""/>
