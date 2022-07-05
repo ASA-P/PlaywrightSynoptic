@@ -22,6 +22,7 @@ Tests written with Playwright execute in isolated clean-slate environments calle
 ### Automate logging in
 The Playwright API can automate interaction with a login form.
 ```
+await page.GotoAsync("https://github.com/login");
 // Fill input[name="login"]
 await page.Locator("input[name=\"login\"]").FillAsync(TestContext.Parameters["UserName"]);
 // Fill input[name="password"]
