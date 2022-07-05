@@ -1,3 +1,46 @@
+# **Visual Testing**
+
+## **Taking Screenshot with Playwright**
+
+#### **[Documentation](https://playwright.dev/dotnet/docs/screenshots)**
+[Page.ScreenshotAsync(options) Documentation](https://playwright.dev/dotnet/docs/api/class-page#page-screenshot)
+
+**Viewport screenshot:**
+```
+await page.ScreenshotAsync(new PageScreenshotOptions {
+    Path = "screenshot.jpg"
+});
+```
+
+**Full page screenshot:**
+```
+await page.ScreenshotAsync(new PageScreenshotOptions {
+    Path = "screenshot.jpg",
+    FullPage = true
+});
+```
+
+**Element screenshot:**
+```
+await page.Locator("header").ScreenshotAsync(new LocatorScreenshotOptions
+{
+    Path = "screenshot.jpg"
+});
+```
+
+**Change options with:**
+
+```Page.ScreenshotAsync(options) ```
+
+## Using Image Comparison
+
+#### **Install the [Codeuctivity.ImageSharpCompare Nuget Package](https://www.nuget.org/packages/Codeuctivity.ImageSharpCompare/) to compare images for visual differences.**
+
+```dotnet add package ImageSharpCompare --version 1.2.11```
+
+
+### **Below code snippet demonstrates how to use playwright screen shot functionality and image comparison tools**
+
 
 ```
 namespace CirrusInsiteTests;
@@ -6,7 +49,6 @@ using Playwright.Custom.NUnit;
 using Codeuctivity.ImageSharpCompare;
 using Microsoft.Playwright;
 using SixLabors.ImageSharp;
-
 
 public class DemoCirrusInsiteScreenshotTests : CirrusInsitePageTest
 {
