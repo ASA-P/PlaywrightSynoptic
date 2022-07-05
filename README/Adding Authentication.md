@@ -2,10 +2,11 @@
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 - Add the following folder inside your project folder: https://github.com/ASA-P/PlaywrightSynoptic/tree/main/AuthenticationTemplate
 
-- Add the folowing test parameters in ```<TestRunParameters>``` in dev.runsettings:
+- Add the folowing test parameters in ```<TestRunParameters>``` in dev.runsettings and enter your github username and password:
 ```
 <Parameter name="UserName" value=""/>
 <Parameter name="Password" value=""/>
+
 ```
 - Add the folowing environment variables in ```<EnvironmentVariables>```
 ```
