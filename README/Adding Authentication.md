@@ -129,7 +129,7 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ### **Page Class**
-In the
+In the PageSetup method if there is no authentication file or the authentication file fails a new authentication file is created.
 ```
 namespace Playwright.Custom.NUnit
 {
