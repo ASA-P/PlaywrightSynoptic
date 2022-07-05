@@ -39,14 +39,23 @@ Web apps use cookie-based or token-based authentication, where authenticated sta
 
 Cookies and local storage state can be used across different browsers. They depend on your application's authentication model: some apps might require both cookies and local storage.
 
+The following code snippet retrieves state from an authenticated context and creates a new context with that state.
+
 ```
 // Save storage state into the file.
 await Context.StorageStateAsync(new BrowserContextStorageStateOptions
 {
     Path = "state.json"
 });
+// Create a new context with the saved storage state.
+var context = await browser.NewContextAsync(new BrowserNewContextOptions
+{
+    StorageStatePath = "state.json"
+});
+
 ```
 ### **Context Class**
+In the ContextOptions method below if the state.json file exists it is added as the StorageStatePath in the browser context.
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -120,7 +129,7 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ### **Page Class**
-
+In the
 ```
 namespace Playwright.Custom.NUnit
 {
