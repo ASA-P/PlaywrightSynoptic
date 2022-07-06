@@ -1,5 +1,5 @@
 # **Playwright .Net Setup Guide**
-# Table of Contents
+# **Table of Contents**
 - ## [Setting Up and Using Playwright on Local Dev Machine](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-dev-machine)
     - ### [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
     - ### [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-a-playwright-project)
@@ -204,11 +204,11 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ## **Change Browser Context & Tracing Options**
-### Context
+### **Context**
 - #### [Context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 - Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
 
-### Tracing
+### **Tracing**
 - #### [Tracing options documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
 - Edit tracing start options by setting TracingStartOptions properties in the method TracingOptions in the ContextTest class.
 
