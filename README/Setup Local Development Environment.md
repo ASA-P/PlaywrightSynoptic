@@ -207,11 +207,11 @@ namespace Playwright.Custom.NUnit
 ```
 ## **Change Browser Context & Tracing Options**
 ### **Context**
-- #### [Context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+- #### [Context Options Documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 - Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
 
 ### **Tracing**
-- #### [Tracing options documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+- #### [Tracing Options Documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
 - Edit tracing start options by setting TracingStartOptions properties in the method TracingOptions in the ContextTest class.
 
 
