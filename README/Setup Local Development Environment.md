@@ -19,7 +19,7 @@
         -  [Tracing](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing)
             -  [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
         -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
-            -  [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
+            -  [Video Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video-documentation)
 
 # **Setting Up and Using Playwright on Local Dev Machine**
 ## **Prerequisites**
@@ -308,7 +308,7 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
   [BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used.<br /> 
   Three options: 'chromium', 'webkit' or 'firefox'
 ### **Tracing**
-- [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)<br />
+- #### [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)<br />
 - Set environment variable tracing to 1 to enable tracing. 
 - View trace file in trace folder in \bin\Debug\net6.0 . 
 - Change options in TracingOptions method in the class ContextTest. 
