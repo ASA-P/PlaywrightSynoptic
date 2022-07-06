@@ -145,10 +145,12 @@ Run codegen and perform actions in the browser. Playwright CLI will generate cod
 
 ```pwsh bin\Debug\netX\playwright.ps1 codegen```
 
-![Image ](Images/codegen explore.png?raw=true)
-![Image ](Images/codegen record.png?raw=true)
-![Image ](Images/Explore Button.png?raw=true)
-![Image ](Images/record button.png?raw=true)
+![Image ](Images/codegen-explore.png?raw=true)<br />
+![Image ](Images/codegen-record.png?raw=true)<br />
+![Image ](Images/Explore-Button.png?raw=true)<br />
+![Image ](Images/record-button.png?raw=true)<br />
+![Image ](Images/select-solution-settings-file.png?raw=true)
+
 ## Change Browser Options
 Edit browser options in Browser = await browserType.LaunchAsync(new()
 [Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
@@ -180,6 +182,7 @@ namespace Playwright.Custom.NUnit
 ## Change Browser Context & Tracing Options
 Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
 [context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+
 Edit tracing start options by setting TracingStartOptions properties in the method TracingOptions in the ContextTest class.
 [tracing options documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
 ```
