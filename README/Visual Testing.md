@@ -1,14 +1,14 @@
 # **Visual Testing**
 ## Table of Contents
-- [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright)
--  [Documentation]()
-- [Viewport screenshot]()
--  [Full page screenshot]()
-- [Element screenshot]()
--  [Change options]()
--  [Using Image Comparison]()
--  [Install](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#install-the-codeuctivityimagesharpcompare-nuget-package-to-compare-images-for-visual-differences)
--  [Code Snippet](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#below-code-snippet-demonstrates-how-to-use-playwright-screenshot-functionality-and-image-comparison-tools)
+- ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright)
+    -  [Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#documentation)
+    - [Viewport screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#viewport-screenshot)
+    -  [Full page screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#full-page-screenshot)
+    - [Element screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#element-screenshot)
+    -  [Change options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#change-options-with)
+-  ### [Using Image Comparison](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#using-image-comparison)
+    -  [Install](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#install-the-codeuctivityimagesharpcompare-nuget-package-to-compare-images-for-visual-differences)
+    -  [Code Snippet](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#below-code-snippet-demonstrates-how-to-use-playwright-screenshot-functionality-and-image-comparison-tools)
 
 ## **Taking Screenshot with Playwright**
 
