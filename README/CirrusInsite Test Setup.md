@@ -1,4 +1,5 @@
-# CirrusInsite Authentication & Visual Testing
+# How to Set Up CirrusInsite Page with Authentication
+## Setup Instructions
 - Add the following folder inside your project folder:
 https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
 
@@ -11,6 +12,7 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/CirrusInsite
 ```
 <SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
 ```
+### Using Authentication from Authentication File
 The following code snippet retrieves state from a local file and creates a new context with that state.
 ```
 public virtual BrowserNewContextOptions ContextOptions()
@@ -72,9 +74,13 @@ Enter your CirrusInsite username and password into the below ```<TestRunParamete
 ```
 To skip authentication set the environment variable ```<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>``` in dev.runsettings to 1. 
 ```
+
 public class CirrusInsiteLoginTest : CirrusInsitePageTest
+
 {
+
     [Test]
+
     public async Task Login()
     {
         await page.GotoAsync("https://portal.cirrusinsite.com/");
