@@ -1,20 +1,20 @@
 # Useful Links
-Playwright .NET website: https://playwright.dev/dotnet/ <br />
-Playwright .NET docs: https://playwright.dev/dotnet/docs/intro <br />
-Guides: Click the top left button to view guides on https://playwright.dev/dotnet/docs/intro <br />
+#### Playwright .NET website: https://playwright.dev/dotnet/ <br />
+#### Playwright .NET docs: https://playwright.dev/dotnet/docs/intro <br />
+#### Guides: Click the top left button to view guides on https://playwright.dev/dotnet/docs/intro <br />
 ![Image ](Images/TopLeftButton.png?raw=true)<br />
-Playwright .NET Application Programming Interface: https://playwright.dev/dotnet/docs/api/class-playwright <br />
+#### Playwright .NET Application Programming Interface: https://playwright.dev/dotnet/docs/api/class-playwright <br />
 Click the top left button to view classes like the page class: https://playwright.dev/dotnet/docs/api/class-page
  
 ### Online Demo of Playwright 
 #### [Demos:](https://try.playwright.tech/?l=csharp)
-- [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
+- #### [Page screenshot:](https://try.playwright.tech/?l=csharp&e=screenshot) This code snippet navigates to the Playwright GitHub repository in WebKit and saves a screenshot. 
 
-- [Generate PDF:](https://try.playwright.tech/?l=csharp&e=generate-pdf) This code snippet navigates to the Playwright GitHub repository and generates a PDF file and saves it to disk. 
+- #### [Generate PDF:](https://try.playwright.tech/?l=csharp&e=generate-pdf) This code snippet navigates to the Playwright GitHub repository and generates a PDF file and saves it to disk. 
 
-- [Request and response logging:](https://try.playwright.tech/?l=csharp&e=request-logging) This example will navigate to example.com and log all its request methods and URLs and for the response the status. 
+- #### [Request and response logging:](https://try.playwright.tech/?l=csharp&e=request-logging) This example will navigate to example.com and log all its request methods and URLs and for the response the status. 
 
-- [Device emulation:](https://try.playwright.tech/?l=csharp&e=device-emulation) This example emulates a Pixel 2 and creates a screenshot with its screen size. 
+- #### [Device emulation:](https://try.playwright.tech/?l=csharp&e=device-emulation) This example emulates a Pixel 2 and creates a screenshot with its screen size. 
 
 # Playwright Key Concepts
 
@@ -43,21 +43,21 @@ class PlaywrightExample
 - #### [Browser Class Documentation](https://playwright.dev/dotnet/docs/api/class-browser)
 
 ## Browser Contexts 
-- [Browser Contexts Documentation](https://playwright.dev/dotnet/docs/)
-- [Browser context class Documentation](https://playwright.dev/dotnet/docs/api/class-browsercontext)
+- #### [Browser Contexts Documentation](https://playwright.dev/dotnet/docs/)
+- #### [Browser context class Documentation](https://playwright.dev/dotnet/docs/api/class-browsercontext)
 
 - A BrowserContext is an isolated incognito-alike session within a browser instance. Browser contexts are fast and cheap to create. We recommend running each test scenario in its own new Browser context, so that the browser state is isolated between the tests.
 
 ## Pages
-- [Pages Documentation](https://playwright.dev/dotnet/docs/pages)
-- [Page class Documentation](https://playwright.dev/dotnet/docs/api/class-page)
-- Each BrowserContext can have multiple pages. A Page refers to a single tab or a popup window within a browser context. It should be used to navigate to URLs and interact with the page content. Each browser context can host multiple pages (tabs):
+- #### [Pages Documentation](https://playwright.dev/dotnet/docs/pages)
+- #### [Page class Documentation](https://playwright.dev/dotnet/docs/api/class-page)
+- #### Each BrowserContext can have multiple pages. A Page refers to a single tab or a popup window within a browser context. It should be used to navigate to URLs and interact with the page content. Each browser context can host multiple pages (tabs):
     - Each page behaves like a focused, active page. Bringing the page to front is not required.
     - Pages inside a context respect context-level emulation, like viewport sizes, custom network routes or browser locale.
 
 ## Page Object Model
 
-[Page Object Model Documentation](https://playwright.dev/dotnet/docs/pom)
+#### [Page Object Model Documentation](https://playwright.dev/dotnet/docs/pom)
 - Large test suites can be structured to optimize ease of authoring and maintenance. Page object models are one such approach to structure your test suite.
 - A page object represents a part of your web application. An e-commerce web application might have a home page, a listings page and a checkout page. Each of them can be represented by page object models.
 Page objects simplify authoring. They create a higher-level API which suits your application.
@@ -85,7 +85,7 @@ Do not fall into the easy trap of reading the error message and immediately jump
 ### Error - Element not found
 One of perhaps the most common and direct error messages one will see, especially when starting out with writing automation scripts, will be the ```Element not found error```. A variety of root causes including wrong selectors, missing waits, navigation problems and more can hide behind it.
 
-**Possible causes**
+#### **Possible causes**
 - **Obvious possible cause #1:** the selector is wrong.
 - **Obvious possible cause #2:** the element is not on the page and the automation tool is not automatically waiting for it to appear. An explicit wait might fix the problem.
 - **Not-so-obvious possible cause:** the click on the previous element did not actually go through. From the perspective of playwright, everything went fine, but from your perspective what happened is more similar to a silent failure. The script is looking for the right element but on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
@@ -96,10 +96,10 @@ In certain situations, it might look as if no click is happening in the browser 
 
 For example: A Playwright script is supposed to run a ```page.click('#btn-login')``` but seems to ignore the click and just proceed with the next instruction. This can result in an ```Element not found error``` or similar.
 
-**Possible causes**
+#### **Possible causes**
 - Not-so-obvious: the element we are trying to click is on the page, but is not the one receiving the click; there might be another element somewhere else on the page that is receiving it instead. The instruction itself does not raise any error, as it is in fact being executed correctly.
 
-**How to avoid confusion**
+#### **How to avoid confusion**
 Try querying for the element in the browser console during inspection. If a ```document.querySelectorAll('mySelector') ```(or simply ```$$('mySelector')```) returns more than one element, you want to come up with a more precise selector which references only the specific element you are looking to click.
 
 Unless you know for certain, do not assume that the page you are automating follows best practices. For example: IDs are unique in valid HTML, but a page can be made up of invalid HTML and still work! So if you are struggling with a click seemingly not going through and your selector is based on an ID, check whether the page contains duplicated IDs.
@@ -108,15 +108,15 @@ Unless you know for certain, do not assume that the page you are automating foll
 
 Knowing that an element is included in the DOM might not be enough for us to properly interact with it: its state also determines whether our action will be able to go through.
 
-**Possible causes**
+#### **Possible causes**
 - Obvious possible cause: the element is set to hidden while it shouldn’t. Something is wrong with the element itself.
 - Not-so-obvious possible cause: a different element is hiding the target element without our knowledge.
 
-**How to avoid confusion**
+#### **How to avoid confusion**
 Either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect.
 
 ## Debugging Tools
-**Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
+#### **Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
 
 #### **Run in Debug Mode**
 Set the PWDEBUG environment variable to run your scripts in debug mode. Using PWDEBUG=1 will open Playwright Inspector.
@@ -162,9 +162,9 @@ If they run against a real-world product with a UI that is evolving over time, s
 
 Taking example from good software engineering practices, our scripts should strive for simplicity, conciseness and readability:
 
-1. **Simplicity:** keep in mind the goal of the script, and keep away from overly complex solutions whenever possible.
-2. **Conciseness:** simply put, do not be overly verbose and keep scripts as short as they can be.
-3. **Readability:** follow general best practices around writing code that is easy to read.
+1. #### **Simplicity:** keep in mind the goal of the script, and keep away from overly complex solutions whenever possible.
+2. #### **Conciseness:** simply put, do not be overly verbose and keep scripts as short as they can be.
+3. #### **Readability:** follow general best practices around writing code that is easy to read.
 
 The faster we can read and understand a script we (or a teammate) wrote in the past, the quicker we can interpret its results and get to work on updating it and making it relevant again.
 
@@ -187,7 +187,7 @@ We can avoid this pitfall by making sure our tests are verifying only one featur
 
 The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
 
-The attributes of a good selector are:
+#### The attributes of a good selector are:
 
 - **Uniqueness:** choose a selector that will identify the target element, and nothing else; **IDs** are the natural choice, when available.
 - **Stability:** use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
