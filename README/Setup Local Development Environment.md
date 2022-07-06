@@ -141,9 +141,9 @@ public class Tests : PageTest
 ### Autogenerate test script 
 
 [Codegen documentation](https://playwright.dev/dotnet/docs/cli#generate-code)
-Run codegen and perform actions in the browser. Playwright CLI will generate code for the user interactions. codegen will attempt to generate resilient text-based selectors Enter in Developer PowerShell:
+<br />Run codegen and perform actions in the browser. Playwright CLI will generate code for the user interactions. codegen will attempt to generate resilient text-based selectors Enter in Developer PowerShell:
 
-```pwsh bin\Debug\netX\playwright.ps1 codegen```
+```pwsh bin\Debug\netX\playwright.ps1 codegen```<br /><br />
 Click the record button in codegen and playwright will generate code for the user interactions <br />
  ![Image ](Images/record-button.png?raw=true)
  ![Image ](Images/codegen-record.png?raw=true)<br />
@@ -153,7 +153,7 @@ Click the explore button in codegen to generate selectors <br />
 
 ## Change Browser Options
 Edit browser options in Browser = await browserType.LaunchAsync(new()
-[Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
+<br /> [Browser Lauch Options Documentation](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 ```
 namespace Playwright.Custom.NUnit
 {
