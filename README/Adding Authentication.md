@@ -1,9 +1,16 @@
 # How to Save Authentication in Playwright
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 ## **Table of Contents**
-- [Explanation](#Explanation)
-    - [Authentication Documentation]()
-- [Authentication Demo/Sample Code](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-demosample-code)
+- ### [Explanation](#Explanation)
+    - [Authentication Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-documentation)
+- ### [Authentication Demo/Sample Code](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-demosample-code)
+    - [Automate logging in](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#automate-logging-in)
+    - [Reuse authentication state](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#reuse-authentication-state)
+    - [Authentication Demo/Sample Code](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-demosample-code)
+    - [Context Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#context-class)
+    - [Page Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#page-class)
+    - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#login-test)
+
 ## **Explanation**
 
 ### [Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
