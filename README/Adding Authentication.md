@@ -2,7 +2,7 @@
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 ## **Table of Contents**
 - [Explanation](#Explanation)
-- [Authentication Demo/Sample Code](#Authentication-Demo/Sample-Code)
+- [Authentication Demo/Sample Code](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-demosample-code)
 ## **Explanation**
 
 [Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
