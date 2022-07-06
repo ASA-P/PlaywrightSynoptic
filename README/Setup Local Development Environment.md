@@ -1,12 +1,12 @@
-# Playwright .Net Setup
+# **Playwright .Net Setup**
 
-## Prerequisites
+## **Prerequisites**
 
 - Visual Studio Installed
 
 - Node.js Installed with default settings https://nodejs.org/en/download/
 
-## Creating Project
+## **Creating Project**
 - Open Visual Studio and create a blank project
 
 ![Image ](Images/OpenVisualStudioandcreateablankproject.png?raw=true)
@@ -113,7 +113,7 @@ public class Tests : PageTest
     - Select the individual tests that you want to run, open the right-click menu for a selected test and then choose Run Selected Tests (or press Ctrl + R, T).
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
-## Adding Tests
+## **Adding Tests**
 ```
 namespace PlaywrightTests;
 
@@ -129,16 +129,16 @@ public class Tests : PageTest
     }
 }
 ```
-### Page options documentation
+### **Page options documentation**
 - [Page class](https://playwright.dev/dotnet/docs/api/class-page)
 - [Page selectors](https://playwright.dev/dotnet/docs/selectors)
 
-### Assert options documentation
+### **Assert options documentation**
 - [Playwright assertions](https://playwright.dev/dotnet/docs/test-assertions#locator-assertions-not)
 - [NUNIT assertions](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertions.html)
 [NUNIT Constraint Model (Assert.That)](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html)
 
-### Autogenerate test script 
+### **Autogenerate test script** 
 
 [Codegen documentation](https://playwright.dev/dotnet/docs/cli#generate-code)
 <br />Run codegen and perform actions in the browser. Playwright CLI will generate code for the user interactions. codegen will attempt to generate resilient text-based selectors Enter in Developer PowerShell:
@@ -151,7 +151,7 @@ Click the explore button in codegen to generate selectors <br />
 ![Image ](Images/Explore-Button.png?raw=true)<br />
 ![Image ](Images/codegen-explore.png?raw=true)<br />
 
-## Change Browser Options
+## **Change Browser Options**
 Edit browser options in Browser = await browserType.LaunchAsync(new()
 <br /> [Browser Lauch Options Documentation](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 ```
@@ -179,7 +179,7 @@ namespace Playwright.Custom.NUnit
     };
 }
 ```
-## Change Browser Context & Tracing Options
+## **Change Browser Context & Tracing Options**
 Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
 [context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
 
@@ -260,7 +260,7 @@ namespace Playwright.Custom.NUnit
 		<BROWSER>chromium</BROWSER>
 </EnvironmentVariables>
 ```
-## Run Configuration Environment Variables in dev.runsettings
+## **Run Configuration Environment Variables in dev.runsettings**
 ### **PWDEBUG**
 Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 - Runs headed: Browsers always launch in headed mode
@@ -276,19 +276,21 @@ Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 - #### **Timeout**
   ```<double?>``` Maximum time in milliseconds to wait for the browser instance to start. Defaults to 30000 (30 seconds). Pass 0 to disable timeout.
 [See other options](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
-
+- #### **Browser**
+  [BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used.<br /> 
+  Three options: 'chromium', 'webkit' or 'firefox'
 ### **Tracing**
-[Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
-Set environment variable tracing to 1 to enable tracing. View trace file in trace folder in \bin\Debug\net6.0 . Change options in TracingOptions method in the class ContextTest. Change where trace files are saved in the ContextTearDown method in the class ContextTest. View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
+- [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)<br />
+- Set environment variable tracing to 1 to enable tracing. 
+- View trace file in trace folder in \bin\Debug\net6.0 . 
+- Change options in TracingOptions method in the class ContextTest. 
+- Change where trace files are saved in the ContextTearDown method in the class ContextTest. 
+- View traces with pwsh bin\Debug\netX\playwright.ps1 show-trace ```<trace file path>```. Or view through browser on: https://trace.playwright.dev/
 
-### [Browser.NewContextAsync(options)](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+### **Video**
+  - Enable video recording by setting the environment variable VIDEO to 1. 
+  - Change video options in ContextOptions method in the class ContextTest. 
+  - Video is saved in folder called videos in \bin\Debug\net6.0. 
+- [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
 
-- ### Add Browser.NewContextAsync(options)
-  Set context options in ContextOptions method in in the class ContextTest.
-
-- ### **Video**
-  Enable video recording by setting the environment variable VIDEO to 1. Change video options in ContextOptions method in the class ContextTest. Video is saved in folder called videos in \bin\Debug\net6.0. 
-[Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
-### **Browser**
-[BrowserType.Name](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-name) Changes browser used. Three options: 'chromium', 'webkit' or 'firefox'
 
