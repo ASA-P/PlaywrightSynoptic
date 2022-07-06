@@ -145,6 +145,10 @@ Run codegen and perform actions in the browser. Playwright CLI will generate cod
 
 ```pwsh bin\Debug\netX\playwright.ps1 codegen```
 
+![Image ](Images/codegen explore.png?raw=true)
+![Image ](Images/codegen record.png?raw=true)
+![Image ](Images/Explore Button.png?raw=true)
+![Image ](Images/record button.png?raw=true)
 ## Change Browser Options
 Edit browser options in Browser = await browserType.LaunchAsync(new()
 [Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
