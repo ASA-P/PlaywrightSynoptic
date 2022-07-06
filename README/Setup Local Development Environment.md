@@ -113,7 +113,41 @@ public class Tests : PageTest
     - Select the individual tests that you want to run, open the right-click menu for a selected test and then choose Run Selected Tests (or press Ctrl + R, T).
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
+## Adding Tests
+```
+namespace PlaywrightTests;
+
+[Parallelizable(ParallelScope.Self)]
+public class Tests : PageTest
+{
+    [Test]
+    public async Task YourTest()
+    {
+        // Do something to the page
+
+        // Verify page has done something expected
+    }
+}
+```
+### Page options documentation
+- [Page class](https://playwright.dev/dotnet/docs/api/class-page)
+- [Page selectors](https://playwright.dev/dotnet/docs/selectors)
+
+### Assert options documentation
+- [Playwright assertions](https://playwright.dev/dotnet/docs/test-assertions#locator-assertions-not)
+- [NUNIT assertions](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertions.html)
+[NUNIT Constraint Model (Assert.That)](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html)
+
+### Autogenerate test script 
+
+[Codegen documentation](https://playwright.dev/dotnet/docs/cli#generate-code)
+Run codegen and perform actions in the browser. Playwright CLI will generate code for the user interactions. codegen will attempt to generate resilient text-based selectors Enter in Developer PowerShell:
+
+```pwsh bin\Debug\netX\playwright.ps1 codegen```
+
 ## Change Browser Options
+Edit browser options in Browser = await browserType.LaunchAsync(new()
+[Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -140,6 +174,10 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ## Change Browser Context & Tracing Options
+Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
+[context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+Edit tracing start options by setting TracingStartOptions properties in the method TracingOptions in the ContextTest class.
+[tracing options documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
 ```
 namespace Playwright.Custom.NUnit
 {
