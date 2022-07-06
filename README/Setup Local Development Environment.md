@@ -128,13 +128,16 @@ public class Tests : PageTest
         // Verify page has done something expected
     }
 }
-
-Page options documentation
-- Page class documentation
-- [Page selectors documentation](https://playwright.dev/dotnet/docs/selectors)
-Assert options documentation
-
 ```
+Page options documentation
+- [Page class](https://playwright.dev/dotnet/docs/api/class-page)
+- [Page selectors](https://playwright.dev/dotnet/docs/selectors)
+
+Assert options documentation
+- [Playwright assertions](https://playwright.dev/dotnet/docs/test-assertions#locator-assertions-not)
+- [NUNIT assertions](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertions.html)
+[NUNIT Constraint Model (Assert.That)](https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html)
+
 ## Change Browser Options
 Edit browser options in Browser = await browserType.LaunchAsync(new()
 [Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
