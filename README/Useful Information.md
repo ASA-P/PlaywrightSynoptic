@@ -26,7 +26,7 @@
     - [Page Object Model](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#page-object-model)
       - [Page Object Model Documentation](https://playwright.dev/dotnet/docs/pom)
 - ## [Debugging](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#debugging)
-  - []()
+  - [Error messages]()
   - []()
   - []()
   - []()
@@ -111,7 +111,7 @@ Script debugging is firstly about observing and understanding. Finding out what 
 
 When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any.
 
-### The error message
+### Error messages
 Error messages are not present in every scenario: we might be trying to understand why a script passes, or why it takes longer than expected. But when we have access to an error message, we can use it to guide us.
 
 The error, in and of its own, is not always enough to understand what is going wrong with your script. Oftentimes, there can be multiple degrees of separation between the error and its root cause. For example: an “Element not found” error might be alerting you to the fact that an element is not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
