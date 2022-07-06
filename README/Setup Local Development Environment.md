@@ -123,12 +123,16 @@ public class Tests : PageTest
     [Test]
     public async Task YourTest()
     {
-        
+        // Do something to the page
+
+        // Verify page has done something expected
     }
 }
 
-Page options
-Assert options
+Page options documentation
+- Page class documentation
+- [Page selectors documentation](https://playwright.dev/dotnet/docs/selectors)
+Assert options documentation
 
 ```
 ## Change Browser Options
