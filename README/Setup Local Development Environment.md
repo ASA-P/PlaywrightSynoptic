@@ -1,4 +1,24 @@
 # **Playwright .Net Setup**
+## Table of Contents
+- ## [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
+- ## [Creating Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-project)
+-   ## [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests)
+-  ## [Page options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#page-options-documentation)
+-  ## [Assert options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#assert-options-documentation)
+-  ## [Autogenerate test script](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#autogenerate-test-script)
+-  ## [Change Browser Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-options)
+- ## [Change Browser Context & Tracing Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-context--tracing-options)
+    -  [Run Configuration Environment Variables](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#run-configuration-environment-variables-in-devrunsettings)
+    -  [PWDEBUG](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#pwdebug)
+    -  [BrowserType.LaunchAsync(options)]()
+        -  [Headed](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#headed)
+        -  [Slowmo](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#slowmo)
+        -  [Timeout](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#timeout)
+        -  [Browser](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#browser)
+    -  [Tracing]https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing)
+        -  [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+    -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
+        -  [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
 
 ## **Prerequisites**
 
@@ -6,7 +26,7 @@
 
 - Node.js Installed with default settings https://nodejs.org/en/download/
 
-## **Creating Project**
+## **Creating Playwright Project**
 - Open Visual Studio and create a blank project
 
 ![Image ](Images/OpenVisualStudioandcreateablankproject.png?raw=true)
