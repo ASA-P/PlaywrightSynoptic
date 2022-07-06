@@ -113,7 +113,27 @@ public class Tests : PageTest
     - Select the individual tests that you want to run, open the right-click menu for a selected test and then choose Run Selected Tests (or press Ctrl + R, T).
     - If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution in the settings menu of the toolbar. This can noticeably reduce the time taken to run all the tests.
 
+## Add Tests
+```
+namespace PlaywrightTests;
+
+[Parallelizable(ParallelScope.Self)]
+public class Tests : PageTest
+{
+    [Test]
+    public async Task YourTest()
+    {
+        
+    }
+}
+
+Page options
+Assert options
+
+```
 ## Change Browser Options
+Edit browser options in Browser = await browserType.LaunchAsync(new()
+[Docs](https://playwright.dev/dotnet/docs/api/class-browsertype#browser-type-launch)
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -140,6 +160,10 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ## Change Browser Context & Tracing Options
+Edit context options by setting contextOptions properties in the method BrowserNewContextOptions in the ContextTest class.
+[context options documentation](https://playwright.dev/dotnet/docs/api/class-browser#browser-new-context)
+Edit tracing start options by setting TracingStartOptions properties in the method TracingOptions in the ContextTest class.
+[tracing options documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
 ```
 namespace Playwright.Custom.NUnit
 {
