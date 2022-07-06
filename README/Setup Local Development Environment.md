@@ -1,7 +1,7 @@
 # **Playwright .Net Setup**
 ## Table of Contents
 - ## [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
-- ## [Creating Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-project)
+- ## [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-a-playwright-project)
 -   ## [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests)
 -  ## [Page options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#page-options-documentation)
 -  ## [Assert options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#assert-options-documentation)
