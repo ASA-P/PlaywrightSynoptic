@@ -2,10 +2,11 @@
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 ## **Table of Contents**
 - [Explanation](#Explanation)
+    - [Authentication Documentation]()
 - [Authentication Demo/Sample Code](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-demosample-code)
 ## **Explanation**
 
-[Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
+### [Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
 
 Playwright can be used to automate scenarios that require authentication.
 
