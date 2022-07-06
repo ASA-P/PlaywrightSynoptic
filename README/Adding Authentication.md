@@ -1,6 +1,8 @@
 # How to Save Authentication in Playwright
 [Playwright .NET Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
-
+## **Table of Contents**
+- [Explanation](#Explanation)
+- [Authentication Demo/Sample Code](#Authentication)
 ## **Explanation**
 
 [Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
