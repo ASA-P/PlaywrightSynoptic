@@ -144,12 +144,12 @@ public class Tests : PageTest
 Run codegen and perform actions in the browser. Playwright CLI will generate code for the user interactions. codegen will attempt to generate resilient text-based selectors Enter in Developer PowerShell:
 
 ```pwsh bin\Debug\netX\playwright.ps1 codegen```
-
-![Image ](Images/codegen-explore.png?raw=true)<br />
-![Image ](Images/codegen-record.png?raw=true)<br />
+Click the record button in codegen and playwright will generate code for the user interactions <br />
+ ![Image ](Images/record-button.png?raw=true)
+ ![Image ](Images/codegen-record.png?raw=true)<br />
+Click the explore button in codegen to generate selectors <br />
 ![Image ](Images/Explore-Button.png?raw=true)<br />
-![Image ](Images/record-button.png?raw=true)<br />
-![Image ](Images/select-solution-settings-file.png?raw=true)
+![Image ](Images/codegen-explore.png?raw=true)<br />
 
 ## Change Browser Options
 Edit browser options in Browser = await browserType.LaunchAsync(new()
