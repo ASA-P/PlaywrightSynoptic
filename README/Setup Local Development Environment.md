@@ -9,6 +9,8 @@
     -  ### [Autogenerate test script](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#autogenerate-test-script)
     -  ### [Change Browser Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-options)
     - ### [Change Browser Context & Tracing Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-context--tracing-options)
+        - [Context Options Documentation]()
+        - [Tracing Options Documentation]()
     -  ### [Run Configuration Environment Variables](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#run-configuration-environment-variables-in-devrunsettings)
         -  [PWDEBUG](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#pwdebug)
         -  [BrowserType.LaunchAsync(options)]()
@@ -17,7 +19,7 @@
             -  [Timeout](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#timeout)
             -  [Browser](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#browser)
         -  [Tracing](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing)
-            -  [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+            -  [Tracing documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing-documentation)
         -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
             -  [Video Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video-documentation)
 
