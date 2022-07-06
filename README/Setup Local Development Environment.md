@@ -1,4 +1,4 @@
-# **Playwright .Net Setup**
+# **Playwright .Net Setup Guide**
 # Table of Contents
 - ## [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
 - ## [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-a-playwright-project)
@@ -20,6 +20,7 @@
     -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
         -  [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
 
+# **Setting Up and Using Playwright on Local Dev Machine**
 ## **Prerequisites**
 
 - Visual Studio Installed
