@@ -17,7 +17,7 @@ Click the top left button to view classes like the page class: https://playwrigh
 - [Device emulation:](https://try.playwright.tech/?l=csharp&e=device-emulation) This example emulates a Pixel 2 and creates a screenshot with its screen size. 
 
 # Debugging 
-Understanding why a script does not work as expected and finding the failure root cause are automation key skills. Given its importance and its sometimes deceptive complexity, debugging is a topic that should receive quite some attention.
+Understanding why a script does not work as expected and finding the failure root cause are automation key skills.
 
 Awareness comes first
 Script debugging is firstly about observing and understanding. Finding out what is causing the failure (or misbehaviour) in your execution heavily depends on your knowledge of:
@@ -27,7 +27,7 @@ Script debugging is firstly about observing and understanding. Finding out what 
 
 When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any.
 
-The error message
+### The error message
 Error messages are not present in every scenario: we might be trying to understand why a script passes, or why it takes longer than expected. But when we have access to an error message, we can use it to guide us.
 
 The error, in and of its own, is not always enough to understand what is going wrong with your script. Oftentimes, there can be multiple degrees of separation between the error and its root cause. For example: an “Element not found” error might be alerting you to the fact that an element is not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
@@ -41,13 +41,13 @@ One of perhaps the most common and direct error messages one will see, especiall
 **Possible causes**
 - **Obvious possible cause #1:** the selector is wrong.
 - **Obvious possible cause #2:** the element is not on the page and the automation tool is not automatically waiting for it to appear. An explicit wait might fix the problem.
-- **Not-so-obvious possible cause:** the click on the previous element did not actually go through. From the perspective of our automation tool, everything went fine, but from ours what happened is more similar to a silent failure. We are now looking for the right element but are on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
+- **Not-so-obvious possible cause:** the click on the previous element did not actually go through. From the perspective of playwright, everything went fine, but from your perspective what happened is more similar to a silent failure. The script is looking for the right element but on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
 
 ### Error - Click not executed
 
 In certain situations, it might look as if no click is happening in the browser even if our script specifies it.
 
-For example: our Playwright script is supposed to run a ```page.click('#btn-login')``` but seems to ignore the click and just proceed with the next instruction. This can result in an ```Element not found error``` or similar.
+For example: A Playwright script is supposed to run a ```page.click('#btn-login')``` but seems to ignore the click and just proceed with the next instruction. This can result in an ```Element not found error``` or similar.
 
 **Possible causes**
 - Not-so-obvious: the element we are trying to click is on the page, but is not the one receiving the click; there might be another element somewhere else on the page that is receiving it instead. The instruction itself does not raise any error, as it is in fact being executed correctly.
