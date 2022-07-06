@@ -1,24 +1,25 @@
 # **Playwright .Net Setup Guide**
 # Table of Contents
-- ## [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
-- ## [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-a-playwright-project)
--   ## [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests)
-    -  [Page options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#page-options-documentation)
-    -  [Assert options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#assert-options-documentation)
--  ## [Autogenerate test script](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#autogenerate-test-script)
--  ## [Change Browser Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-options)
-- ## [Change Browser Context & Tracing Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-context--tracing-options)
--  ## [Run Configuration Environment Variables](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#run-configuration-environment-variables-in-devrunsettings)
-    -  [PWDEBUG](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#pwdebug)
-    -  [BrowserType.LaunchAsync(options)]()
-        -  [Headed](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#headed)
-        -  [Slowmo](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#slowmo)
-        -  [Timeout](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#timeout)
-        -  [Browser](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#browser)
-    -  [Tracing](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing)
-        -  [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
-    -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
-        -  [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
+- ## [Setting Up and Using Playwright on Local Dev Machine](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-dev-machine)
+    - ### [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites)
+    - ### [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-a-playwright-project)
+    -   ### [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests)
+        -  [Page options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#page-options-documentation)
+        -  [Assert options documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#assert-options-documentation)
+    -  ### [Autogenerate test script](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#autogenerate-test-script)
+    -  ### [Change Browser Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-options)
+    - ### [Change Browser Context & Tracing Options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#change-browser-context--tracing-options)
+    -  ### [Run Configuration Environment Variables](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#run-configuration-environment-variables-in-devrunsettings)
+        -  [PWDEBUG](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#pwdebug)
+        -  [BrowserType.LaunchAsync(options)]()
+            -  [Headed](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#headed)
+            -  [Slowmo](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#slowmo)
+            -  [Timeout](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#timeout)
+            -  [Browser](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#browser)
+        -  [Tracing](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing)
+            -  [Tracing documentation](https://playwright.dev/dotnet/docs/api/class-tracing)
+        -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
+            -  [Video Documentation](https://playwright.dev/dotnet/docs/api/class-video)
 
 # **Setting Up and Using Playwright on Local Dev Machine**
 ## **Prerequisites**
@@ -68,11 +69,13 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
   </TestRunParameters>
   <RunConfiguration>
     <EnvironmentVariables>
-      <HEADED>0</HEADED>
-      <PWDEBUG>0</PWDEBUG>
-      <TIMEOUT>0</TIMEOUT>
-      <SLOWMO>0</SLOWMO>
-      <BROWSER>chromium</BROWSER>
+        <PWDEBUG>0</PWDEBUG>
+		<HEADED>0</HEADED>
+		<TIMEOUT>0</TIMEOUT>
+		<SLOWMO>0</SLOWMO>
+        <TRACING>0</TRACING>
+		<VIDEO>0</VIDEO>
+		<BROWSER>chromium</BROWSER>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
@@ -270,18 +273,18 @@ namespace Playwright.Custom.NUnit
     }
 }
 ```
+## **Run Configuration Environment Variables in dev.runsettings**
 ```
 <EnvironmentVariables>
     <PWDEBUG>0</PWDEBUG>
 		<HEADED>0</HEADED>
 		<TIMEOUT>0</TIMEOUT>
 		<SLOWMO>0</SLOWMO>
-    <TRACING>0</TRACING>
+        <TRACING>0</TRACING>
 		<VIDEO>0</VIDEO>
 		<BROWSER>chromium</BROWSER>
 </EnvironmentVariables>
 ```
-## **Run Configuration Environment Variables in dev.runsettings**
 ### **PWDEBUG**
 Set environment variable PWDEBUG to 1 to launch in debug mode. Debug mode
 - Runs headed: Browsers always launch in headed mode
