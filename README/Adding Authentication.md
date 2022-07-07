@@ -12,7 +12,7 @@
     - [Page Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#page-class)
     - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#login-test)
 
-# How to Save Authentication in Playwright
+## How to Save Authentication in Playwright
 ## **Explanation**
 
 ### [Authentication Documentation](https://playwright.dev/dotnet/docs/auth)
