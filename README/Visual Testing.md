@@ -6,7 +6,7 @@
     -  [Full page screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#full-page-screenshot)
     - [Element screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#element-screenshot)
     -  [Change options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#change-options-with)
--  ### [Using Image Comparison](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#using-image-comparison)
+-  ### [Using Image Comparison](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#using-image-comparison-1)
     -  [Install](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#install-the-codeuctivityimagesharpcompare-nuget-package-to-compare-images-for-visual-differences)
     -  [Code Snippet](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#below-code-snippet-demonstrates-how-to-use-playwright-screenshot-functionality-and-image-comparison-tools)
 
