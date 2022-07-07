@@ -11,7 +11,7 @@
     - [Request and response logging](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#request-and-response-logging-this-example-will-navigate-to-examplecom-and-log-all-its-request-methods-and-urls-and-for-the-response-the-status)
     - [Device emulation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#device-emulation-this-example-emulates-a-pixel-2-and-creates-a-screenshot-with-its-screen-size)
 - ## [Playwright Key Concepts](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright-key-concepts)
-    - ### [Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright-1)
+    - [Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright)
       - [Playwright Class Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright-class-documentation)
       - [Example](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright-module-provides-a-method-to-launch-a-browser-instance-the-following-is-a-typical-example-of-using-playwright-to-drive-automation)
     - [Browsers](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#browsers)
