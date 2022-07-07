@@ -78,7 +78,7 @@ Enter your CirrusInsite username and password into the below ```<TestRunParamete
 <Parameter name="CirrusInsiteUserName" value=""/>
 <Parameter name="CirrusInsitePassword" value=""/>
 ```
-To skip authentication set the environment variable ```<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>``` in dev.runsettings to 1. 
+To skip authentication, set the environment variable ```<SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>``` in dev.runsettings to 1. 
 ```
 
 public class CirrusInsiteLoginTest : CirrusInsitePageTest
