@@ -71,13 +71,13 @@ https://github.com/ASA-P/PlaywrightSynoptic/tree/main/Playwright.Custom.NUnit
   </TestRunParameters>
   <RunConfiguration>
     <EnvironmentVariables>
-        <PWDEBUG>0</PWDEBUG>
-		<HEADED>0</HEADED>
-		<TIMEOUT>0</TIMEOUT>
-		<SLOWMO>0</SLOWMO>
-        <TRACING>0</TRACING>
-		<VIDEO>0</VIDEO>
-		<BROWSER>chromium</BROWSER>
+	<PWDEBUG>0</PWDEBUG>
+	<HEADED>0</HEADED>
+	<TIMEOUT>0</TIMEOUT>
+	<SLOWMO>0</SLOWMO>
+	<TRACING>0</TRACING>
+	<VIDEO>0</VIDEO>
+	<BROWSER>chromium</BROWSER>
     </EnvironmentVariables>
   </RunConfiguration>
 </RunSettings>
