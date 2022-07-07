@@ -18,7 +18,7 @@
 
 Playwright can be used to automate scenarios that require authentication.
 
-Tests written with Playwright execute in isolated clean-slate environments called browser contexts.  New browser contexts can load existing authentication state. This eliminates the need to login in every context and speeds up test execution. (logging in via the app UI) cookie/token-based authentication
+Tests written with Playwright execute in isolated clean-slate environments called browser contexts.  New browser contexts can load existing authentication state. This eliminates the need to login in every context and speeds up test execution.
 
 ### Automate logging in
 The Playwright API can automate interaction with a login form.
@@ -34,7 +34,7 @@ await page.RunAndWaitForNavigationAsync(async () =>
     await page.Locator("input[name=\"password\"]").PressAsync("Enter");
 });
 ```
-These steps can be executed for every browser context. However, redoing login for every test can slow down test execution. To prevent that, we will reuse existing authentication state in new browser contexts.
+These steps can be executed for every browser context. However, redoing login for every test can slow down test execution. To prevent that reuse existing authentication state in new browser contexts.
 
 ### Reuse authentication state
 Web apps use cookie-based or token-based authentication, where authenticated state is stored as cookies or in local storage. Playwright provides BrowserContext.StorageStateAsync(options) method that can be used to retrieve storage state from authenticated contexts and then create new contexts with prepopulated state.
@@ -71,7 +71,7 @@ var context = await browser.NewContextAsync(new BrowserNewContextOptions
 <SKIPAUTHENTICATIONVERIFICATION>0</SKIPAUTHENTICATIONVERIFICATION>
 ```
 ### **Context Class**
-In the ContextOptions method below if the state.json file exists it is added as the StorageStatePath in the browser context.
+In the ContextOptions method below, if the state.json file exists it is added as the StorageStatePath in the browser context.
 ```
 namespace Playwright.Custom.NUnit
 {
@@ -151,7 +151,7 @@ namespace Playwright.Custom.NUnit
 }
 ```
 ### **Page Class**
-In the PageSetup method if there is no authentication file or the authentication file fails a new authentication file is created.
+In the PageSetup method, if there is no authentication file or the authentication file fails, a new authentication file is created.
 ```
 namespace Playwright.Custom.NUnit
 {
