@@ -2,7 +2,7 @@
 
 ## **Table of Contents**
 - ### [How to Save Authentication in Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#how-to-save-authentication-in-playwright-2)
-    - ### [Explanation](#Explanation)
+    - ### [Explanation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#explanation-1)
         - [Authentication Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-documentation)
         - [Automate logging in](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#automate-logging-in)
         - [Reuse authentication state](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#reuse-authentication-state)
