@@ -13,7 +13,7 @@
         - [Tracing Options Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#tracing-options-documentation)
     -  ### [Run Configuration Environment Variables](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#run-configuration-environment-variables-in-devrunsettings)
         -  [PWDEBUG](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#pwdebug)
-        -  [BrowserType.LaunchAsync(options)]()
+        -  [BrowserType.LaunchAsync(options)](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#browsertypelaunchasyncoptions)
             -  [Headed](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#headed)
             -  [Slowmo](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#slowmo)
             -  [Timeout](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#timeout)
