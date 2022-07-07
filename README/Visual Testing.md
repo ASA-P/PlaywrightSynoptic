@@ -1,6 +1,6 @@
 # **Visual Testing**
 ## Table of Contents
-- ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright)
+- ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright-1)
     -  [Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#documentation)
     - [Viewport screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#viewport-screenshot)
     -  [Full page screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#full-page-screenshot)
