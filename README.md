@@ -101,7 +101,7 @@
     - [Using Authentication from Authentication File](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#using-authentication-from-authentication-file)
     - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#login-test)
 
-# **Visual Testing**
+## **Visual Testing**
 - ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright-1)
     -  [Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#documentation)
     - [Viewport screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#viewport-screenshot)
