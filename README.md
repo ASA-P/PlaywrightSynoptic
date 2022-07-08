@@ -1,7 +1,7 @@
 # **Automated Testing with Playwright**
 ### **This guide is split up into five parts:**
 - ### [**Useful information**](https://github.com/ASA-P/PlaywrightSynoptic#useful-information-1)
-- ### [**Setting Up and Using Playwright on Local Development Environment**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-development-Environment-1)
+- ### [**Setting Up and Using Playwright on Local Development Environment**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-development-environment-1)
 - ### [**How to Save Authentication in Playwright**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-save-authentication-in-playwright-1)
 - ### [**How to Set Up a CirrusInsite Page with Authentication**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-set-up-cirrusinsite-page-with-authentication)
 - ### [**Visual Testing**](https://github.com/ASA-P/PlaywrightSynoptic#visual-testing-1)
