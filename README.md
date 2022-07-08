@@ -71,3 +71,21 @@
         - [Context Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#context-class)
         - [Page Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#page-class)
         - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#login-test)
+
+# **How to Set Up CirrusInsite Page with Authentication**
+## **Table of Contents**
+- ### [Setup Instructions](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#setup-instructions-1)
+    - [Using Authentication from Authentication File](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#using-authentication-from-authentication-file)
+    - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#login-test)
+
+# **Visual Testing**
+## Table of Contents
+- ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright-1)
+    -  [Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#documentation)
+    - [Viewport screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#viewport-screenshot)
+    -  [Full page screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#full-page-screenshot)
+    - [Element screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#element-screenshot)
+    -  [Change options](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#change-options-with)
+-  ### [Using Image Comparison](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#using-image-comparison-1)
+    -  [Install](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#install-the-codeuctivityimagesharpcompare-nuget-package-to-compare-images-for-visual-differences)
+    -  [Code Snippet](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#below-code-snippet-demonstrates-how-to-use-playwright-screenshot-functionality-and-image-comparison-tools)
