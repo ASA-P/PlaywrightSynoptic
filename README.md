@@ -1,7 +1,7 @@
 # **Automated Testing with Playwright**
 ### **This guide is split up into five parts:**
 - ### [**Useful information**](https://github.com/ASA-P/PlaywrightSynoptic#useful-information-1)
-- ### [**Setting Up and Using Playwright on Local Development Machine**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-development-machine-1)
+- ### [**Setting Up and Using Playwright on Local Development Environment**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-development-Environment-1)
 - ### [**How to Save Authentication in Playwright**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-save-authentication-in-playwright-1)
 - ### [**How to Set Up a CirrusInsite Page with Authentication**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-set-up-cirrusinsite-page-with-authentication)
 - ### [**Visual Testing**](https://github.com/ASA-P/PlaywrightSynoptic#visual-testing-1)
@@ -61,8 +61,8 @@
   - ### [Playwright Tools](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#playwright-tools-1)
     - [Generate code / selectors](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#generate-code--selectors)
     - [Run tests in debug mode](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Useful%20Information.md#run-tests-in-debug-mode)
-## **Setting Up and Using Playwright on Local Development Machine**
-  - ### [Setting Up and Using Playwright on Local Development Machine](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-development-machine-1)
+## **Setting Up and Using Playwright on Local Development Environment**
+  - ### [Setting Up and Using Playwright on Local Development Environment](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-development-Environment-1)
       - ### [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites-1)
       - ### [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-playwright-project)
       -   ### [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests-1)
