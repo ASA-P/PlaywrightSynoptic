@@ -1,4 +1,4 @@
-# **How to Set Up CirrusInsite Page with Authentication**
+# **How to Set Up a CirrusInsite Page with Authentication**
 ## **Table of Contents**
 - ### [Setup Instructions](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#setup-instructions-1)
     - [Using Authentication from Authentication File](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#using-authentication-from-authentication-file)
