@@ -85,15 +85,7 @@
           -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
               -  [Video Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video-documentation)
 
-
-## **Table of Contents**
-- ### [Setup Instructions](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#setup-instructions-1)
-    - [Using Authentication from Authentication File](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#using-authentication-from-authentication-file)
-    - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#login-test)
-
-# How to Save Authentication in Playwright
-
-## **Table of Contents**
+## **How to Save Authentication in Playwright**
 - ### [How to Save Authentication in Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#how-to-save-authentication-in-playwright-2)
     - ### [Explanation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#explanation-1)
         - [Authentication Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#authentication-documentation)
@@ -104,14 +96,12 @@
         - [Page Class](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#page-class)
         - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Adding%20Authentication.md#login-test)
 
-# **How to Set Up CirrusInsite Page with Authentication**
-## **Table of Contents**
+## **How to Set Up CirrusInsite Page with Authentication**
 - ### [Setup Instructions](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#setup-instructions-1)
     - [Using Authentication from Authentication File](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#using-authentication-from-authentication-file)
     - [Login Test](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/CirrusInsite%20Test%20Setup.md#login-test)
 
 # **Visual Testing**
-## Table of Contents
 - ### [Taking Screenshot with Playwright](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#taking-screenshot-with-playwright-1)
     -  [Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#documentation)
     - [Viewport screenshot](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Visual%20Testing.md#viewport-screenshot)
