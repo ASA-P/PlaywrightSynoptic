@@ -1,5 +1,5 @@
 # **Automated Testing with Playwright**
-### **This guide introduces how to develop automated tests with Plawyright including sample tests and is split up into five parts:**
+### **This guide introduces how to best develop resilient and fast automated tests with Plawyright and is split up into five parts:**
 - ### [**Useful information**](https://github.com/ASA-P/PlaywrightSynoptic#useful-information-1)
 - ### [**Setting Up and Using Playwright on Local Development Environment**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-development-environment-1)
 - ### [**How to Save Authentication in Playwright**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-save-authentication-in-playwright-1)
