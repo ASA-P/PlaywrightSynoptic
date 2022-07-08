@@ -1,10 +1,10 @@
 # **Playwright Synoptic**
 ### **This guide is split up into five parts:**
-- ### [**Useful information**]()
-- ### [**Setting Up and Using Playwright on Local Dev Machine**]()
-- ### [**How to Save Authentication in Playwright**]()
-- ### [**How to Set Up a CirrusInsite Page with Authentication**]()
-- ### [**Visual Testing**]()
+- ### [**Useful information**](https://github.com/ASA-P/PlaywrightSynoptic#useful-information-1)
+- ### [**Setting Up and Using Playwright on Local Dev Machine**](https://github.com/ASA-P/PlaywrightSynoptic#setting-up-and-using-playwright-on-local-dev-machine-1)
+- ### [**How to Save Authentication in Playwright**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-save-authentication-in-playwright-1)
+- ### [**How to Set Up a CirrusInsite Page with Authentication**](https://github.com/ASA-P/PlaywrightSynoptic#how-to-set-up-cirrusinsite-page-with-authentication)
+- ### [**Visual Testing**](https://github.com/ASA-P/PlaywrightSynoptic#visual-testing-1)
 
 # **Table of Contents**
 ## **Useful information**
