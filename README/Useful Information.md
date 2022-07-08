@@ -122,54 +122,55 @@ Page objects simplify maintenance. They capture element selectors in one place a
 # Debugging 
 Understanding why a script does not work as expected and finding the failure root cause are automation key skills.
 
-Awareness comes first
-Script debugging is firstly about observing and understanding. Finding out what is causing the failure (or misbehaviour) in your execution heavily depends on your knowledge of:
+Script debugging requires observation and understanding to find out what is causing the failure (or misbehaviour) in the execution:
+1. What is the script supposed to do?                  
+2. Check how the application the script is running against is supposed to behave at each step of the script.
 
-1. What the script you are looking at is supposed to do
-2. How the application the script is running against is supposed to behave at each step of the script
-
-When approaching a debugging session, make sure the above points are taken care of. Skipping this step is way more likely to cost you additional time than it is to save you any.
 
 ### Error messages
-Error messages are not present in every scenario: we might be trying to understand why a script passes, or why it takes longer than expected. But when we have access to an error message, we can use it to guide us.
+When there is access to an error message, use it as a guide. (Error messages are not present in every scenario.) Error messages can require extra interpretation to understand what is going wrong with a script. Consider the script and app under test and question its meaning.
+For example: an “Element not found” error might alert to an element not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
 
-The error, in and of its own, is not always enough to understand what is going wrong with your script. Oftentimes, there can be multiple degrees of separation between the error and its root cause. For example: an “Element not found” error might be alerting you to the fact that an element is not being found on the page, but that itself might be because the browser was made to load the wrong URL in the first place.
-
-Do not fall into the easy trap of reading the error message and immediately jumping to conclusions. Rather, take the error message, research it if needed, combine it with your knowledge of script and app under test and treat it as the first piece to the puzzle, rather than the point of arrival of your investigation.
 
 ## Common Script Errors
 ### Error - Element not found
-One of perhaps the most common and direct error messages one will see, especially when starting out with writing automation scripts, will be the ```Element not found error```. A variety of root causes including wrong selectors, missing waits, navigation problems and more can hide behind it.
+is a common message in automation scripts. Causes may be
+wrong selectors, missing waits, navigation problems.
+The obvious causes should be checked first.
+
 
 #### **Possible causes**
-- **Obvious possible cause #1:** the selector is wrong.
-- **Obvious possible cause #2:** the element is not on the page and the automation tool is not automatically waiting for it to appear. An explicit wait might fix the problem.
-- **Not-so-obvious possible cause:** the click on the previous element did not actually go through. From the perspective of playwright, everything went fine, but from your perspective what happened is more similar to a silent failure. The script is looking for the right element but on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
+- the selector is wrong.
+- the element is not on the page and the automation tool is not automatically waiting for it to appear. An explicit wait might fix the problem.
+- (Less obvious) The click on the previous element did not actually go through.
+ From the perspective of Playwright, it was fine, but the script is looking for the right element but on the wrong page (or the page is in the wrong state), and the target element is therefore not found.
+
 
 ### Error - Click not executed
 
-In certain situations, it might look as if no click is happening in the browser even if our script specifies it.
+In certain situations, it might look as if no click is happening in the browser even if the script specifies it.
 
-For example: A Playwright script is supposed to run a ```page.click('#btn-login')``` but seems to ignore the click and just proceed with the next instruction. This can result in an ```Element not found error``` or similar.
+An example of Element not found error or similar: A Playwright script is supposed to run a ```page.click('#btn-login')``` but seems to ignore the click and just proceed with the next instruction. This can result in an ```Element not found error``` or similar.
 
 #### **Possible causes**
-- Not-so-obvious: the element we are trying to click is on the page, but is not the one receiving the click; there might be another element somewhere else on the page that is receiving it instead. The instruction itself does not raise any error, as it is in fact being executed correctly.
+- (Less obvious) The element trying to be clicked is on the page, but is not the one receiving the click; another element somewhere else on the page is receiving it instead. The instruction itself does not raise any error, as it is in fact being executed correctly.
 
 #### **How to avoid confusion**
-Try querying for the element in the browser console during inspection. If a ```document.querySelectorAll('mySelector') ```(or simply ```$$('mySelector')```) returns more than one element, you want to come up with a more precise selector which references only the specific element you are looking to click.
+Try querying for the element in the browser console during inspection. If a ```document.querySelectorAll('mySelector') ```(or simply ```$$('mySelector')```) returns more than one element,  a more precise selector is needed, which references only the specific element to be clicked. 
 
-Unless you know for certain, do not assume that the page you are automating follows best practices. For example: IDs are unique in valid HTML, but a page can be made up of invalid HTML and still work! So if you are struggling with a click seemingly not going through and your selector is based on an ID, check whether the page contains duplicated IDs.
+If a selector is based on an ID, and a click is seemingly not going through, check whether the page contains duplicated IDs.
+
 
 ### Error - Element not visible
 
-Knowing that an element is included in the DOM might not be enough for us to properly interact with it: its state also determines whether our action will be able to go through.
+An element included in the DOM might not be properly interacting. 
 
 #### **Possible causes**
-- Obvious possible cause: the element is set to hidden while it shouldn’t. Something is wrong with the element itself.
-- Not-so-obvious possible cause: a different element is hiding the target element without our knowledge.
+-	Obvious cause: the element is wrongly set to hidden or something is wrong with the element itself.
+-	Less obvious cause: a different element is unexpectedly hiding the target element.
 
 #### **How to avoid confusion**
-Either walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error - this will help you verify whether the application state actually is the one you expect.
+Remedy by a walk through the execution in headful mode or take screenshots before and after the instruction that has raised the error. This will help you verify whether the application state actually is the one you expect.
 
 ## Debugging Tools
 #### **Debugging Tools Playwright Documentation:** https://playwright.dev/docs/debug
@@ -187,7 +188,7 @@ Using PWDEBUG=console will configure the browser for debugging in Developer tool
 #### **The Playwright Inspector**
 The Playwright Inspector is a GUI tool which exposes additional debugging functionality.
 
-The Inspector allows us to easily step through each instruction of our script, while giving us clear information on the duration, outcome, and functioning of each. This can be helpful in getting to the root cause of some of the more generic errors.
+The Inspector allows easy step through each instruction of the script, giving  clear information on the duration, outcome, and functioning of each. This can be helpful in getting to the root cause of some of the more generic errors.
 
 #### **Run in headed mode**
 Playwright runs browsers in headless mode by default. 
@@ -211,18 +212,17 @@ User can inspect selectors or perform manual steps while paused. Resume will con
 3. Keep tests independent to maximise their parallelisation potential and reduce total runtime.
 
 ### **Keep tests short**
-If they run against a real-world product with a UI that is evolving over time, scripts will need to be regularly updated. This brings up two important points:
+Scripts will need to be regularly updated, if they run against a real-world product with a UI that is evolving over time. This brings up two important points:
+1.	Most scripts are not write-and-forget, so each script written is one more script to be maintained.
+2.	How the script is written can have a significant influence on how long this maintenance effort takes.
 
-1. Most scripts are not write-and-forget, so each script we write is one more script we will have to maintain.
-2. Like all cases where code and refactoring are involved, how we write scripts can have a significant influence on how long this maintenance effort takes.
+Scripts should strive for: 
 
-Taking example from good software engineering practices, our scripts should strive for simplicity, conciseness and readability:
+1. #### **Simplicity:** focus on the goal of the script. Avoid overly complex solutions whenever possible.
+2. #### **Conciseness:** keep scripts as short as they can be.
+3. #### **Readability:** observe best practice around writing code that is easy to read.
 
-1. #### **Simplicity:** keep in mind the goal of the script, and keep away from overly complex solutions whenever possible.
-2. #### **Conciseness:** simply put, do not be overly verbose and keep scripts as short as they can be.
-3. #### **Readability:** follow general best practices around writing code that is easy to read.
-
-The faster we can read and understand a script we (or a teammate) wrote in the past, the quicker we can interpret its results and get to work on updating it and making it relevant again.
+The faster a script is understood, the quicker the results can be interpreted, allowing updates and keeping it relevant.
 
 ### **Keep tests focused**
 Automated tests are effective if they:
@@ -231,26 +231,22 @@ Automated tests are effective if they:
 2. Return within a reasonable amount of time.
 3. Produce a result that can be easily interpreted by humans.
 
-The last point is often overlooked. Scripts by themselves have no meaning if their results mean nothing to whoever is looking at them. Ideally, we want the opposite: interpreting a test success or failure should be close to instantaneous and give us a clear understanding of what is working and what is not.
-
-Oftentimes this is impeded by the tendency to have tests do too much. While it may be tempting to combine tests that have part of their flow in common to avoid a certain degree of duplication, merging them into a single test would obfuscate the meaning of a test failure as we would be testing  different features. If combined tests were to fail, we would be unable to easily tell which feature failed unless we were to devote additional time to diving deep into the failure - which is exactly what we are trying to avoid.
-
-We can avoid this pitfall by making sure our tests are verifying only one feature each.
-
-    Always check the assertions in your test: if they are spanning more than one feature, you would likely be better off splitting your test into multiple different ones.
+A script should make a test success or failure easy to spot to give a clear understanding of what is working and what is not.
+Tests should not do too much. Combining tests that have part of their flow in common into a single test would obfuscate the meaning of a test failure as different features would be tested. If combined tests were to fail, it is hard to identify which feature failed. It is preferable to use tests that verify only one feature each. 
+Check the assertions in the test. If spanning more than one feature, splitting the test into multiple tests is advised.
 
 ## Choosing selectors
 
-The selectors you choose to use in your scripts will help determine how much maintenance work will go into your scripts over the course of their lifetime. Ideally, you want to have robust selectors in place to save yourself time and effort going forward.
+The selectors in scripts will help determine how much maintenance work will be needed in the lifetime of a script. Aim to have robust selectors in place.
 
 #### The attributes of a good selector are:
 
 - **Uniqueness:** choose a selector that will identify the target element, and nothing else; **IDs** are the natural choice, when available.
-- **Stability:** use an attribute that is unlikely to change as the page gets updated lowers the chances that you will need to manually update it.
+- **Stability:** use an attribute that is unlikely to change as the page gets updated. (lowers the chances that you will need to manually update it.)
 - **Conciseness:** prefer short selectors that are easier to read, understand and possibly replace if a script breaks.
 
 ### Examples of (potentially) good selectors
-The following might be good selectors:
+
 
 1. ```#elementId```
     - concise
