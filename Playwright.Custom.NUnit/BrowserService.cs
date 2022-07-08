@@ -14,8 +14,8 @@ namespace Playwright.Custom.NUnit
                 Browser = await browserType.LaunchAsync(new()
                 {
                     Headless = Environment.GetEnvironmentVariable("HEADED") != "1",
-                    SlowMo = float.Parse(Environment.GetEnvironmentVariable("SLOWMO") ?? "0", System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
-                    Timeout = float.Parse(Environment.GetEnvironmentVariable("TIMEOUT") ?? "60000", System.Globalization.CultureInfo.InvariantCulture.NumberFormat)
+                    SlowMo = float.Parse(Environment.GetEnvironmentVariable("SLOWMO") ?? "0"),
+                    Timeout = float.Parse(Environment.GetEnvironmentVariable("TIMEOUT") ?? "60000")
                 }).ConfigureAwait(false)
             });;
         }
