@@ -1,6 +1,6 @@
 # **Playwright .Net Setup Guide**
 # **Table of Contents**
-- ## [Setting Up and Using Playwright on Local Dev Machine](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-dev-machine-1)
+- ## [Setting Up and Using Playwright on Local Development Machine](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#setting-up-and-using-playwright-on-local-development-machine-1)
     - ### [Prerequisites](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#prerequisites-1)
     - ### [Creating a Playwright Project](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#creating-playwright-project)
     -   ### [Adding Tests](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#adding-tests-1)
@@ -23,7 +23,7 @@
         -  [Video](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video)
             -  [Video Documentation](https://github.com/ASA-P/PlaywrightSynoptic/blob/main/README/Setup%20Local%20Development%20Environment.md#video-documentation)
 
-# **Setting Up and Using Playwright on Local Dev Machine**
+# **Setting Up and Using Playwright on Local Development Machine**
 ## **Prerequisites**
 
 - Visual Studio Installed
